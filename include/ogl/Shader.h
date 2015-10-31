@@ -1,5 +1,5 @@
-#ifndef SHADER_H
-#define SHADER_H
+#ifndef Shader_H
+#define Shader_H
 
 #include <GL/glew.h>
 #include <iostream>
@@ -7,46 +7,47 @@
 #include <string>
 #include <windows.h>
 #include <memory>
+#include "Utility.h"
 
 #ifdef _WIN32
 #define WINDOW_PLATFORM
 #endif
 
-
 namespace byhj
 {
 
-namespace ogl
-{
+   namespace ogl
+    {
+     
+        class Shader
+        {
+        
+        public:
+			Shader() = default;
+        	Shader(std::string shaderName) : m_Name(shaderName) {}
+			~Shader() = default;
+        
+        public:
+        	void init(std::string folder = "");
+        	void attach(int type, char *filename);
+        	void link();
+        	void info();
+        	void use()  const; 
+        	void end()  const;
+        
+        	GLuint GetProgram() const;
+        
+        
+        private:
+			char *textFileRead(const char *fn);
 
-class Shader
-{
+			GLuint m_Program = ogl::VALUE;
+			std::string fileDir;
+        	std::string m_Name = "Shader";   
+        };
+        
+    }
 
-public:
-	Shader(): m_Program(0), m_Name("Shader") {}
-	Shader(std::string shaderName):m_Program(0), m_Name(shaderName) {}
-
-	~Shader(){}
-
-public:
-	void init();
-	void attach(int type, char *filename);
-	void link();
-	void info();
-	void use() const; 
-	void end() const;
-
-	GLuint GetProgram() const;
-
-
-private:
-	char *textFileRead( char *fn) ;
-
-	GLuint m_Program;   //Shader program
-	std::string m_Name;   //Shader class name
-};
-
-}
 }
 #endif
 

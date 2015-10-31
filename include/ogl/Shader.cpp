@@ -2,14 +2,13 @@
 #include <fstream>
 
 namespace byhj
-{ 
+{
+
 namespace ogl
 {
 
-
-
-//read the Shader code
-char * Shader::textFileRead( char *fn) {  //read the shader code
+//read the Shadercode
+char * Shader::textFileRead(const char *fn) {  //read the shader code
 	FILE *fp;  
 	char *content = NULL;  
 	int count=0;  
@@ -47,14 +46,17 @@ char * Shader::textFileRead( char *fn) {  //read the shader code
 
 
 
-void Shader::init()
+void Shader::init(std::string folder)
 {
+	fileDir = folder;
 	m_Program = glCreateProgram();
 }
 
 void Shader::attach(int type, char* filename) //连接不同种类Shader
 {
-	auto mem = textFileRead(filename);
+	std::string file = fileDir + filename;
+	auto mem = textFileRead(file.c_str());
+
 	GLuint handle = glCreateShader(type);
 	glShaderSource(handle, 1, (const GLchar**)(&mem), 0);
 
@@ -68,7 +70,7 @@ void Shader::attach(int type, char* filename) //连接不同种类Shader
 	if (!compileSuccess) 
 	{
 		glGetShaderInfoLog(handle, sizeof(compilerSpew), 0, compilerSpew);
-		printf("Shader %s\n%s\ncompileSuccess=%d\n",filename, compilerSpew, compileSuccess);
+		printf("Shader%s\n%s\ncompileSuccess=%d\n",filename, compilerSpew, compileSuccess);
 
 		while(1);;
 	}
@@ -82,11 +84,11 @@ void Shader::link()
 
 	GLint linkSuccess;
 	GLchar compilerSpew[256];
-	glGetProgramiv(m_Program, GL_LINK_STATUS, &linkSuccess); //输出连接信息
+	glGetProgramiv(m_Program, GL_LINK_STATUS, &linkSuccess); //print the shader info
 	if(!linkSuccess) 
 	{
 		glGetProgramInfoLog(m_Program, sizeof(compilerSpew), 0, compilerSpew);
-		printf("Shader Linker:\n%s\nlinkSuccess=%d\n",compilerSpew,linkSuccess);
+		printf("ShaderLinker:\n%s\nlinkSuccess=%d\n",compilerSpew,linkSuccess);
 		while(1);;
 	}
 
@@ -96,7 +98,7 @@ void Shader::link()
 
 void Shader::info()
 {
-	std::cout << "------------------------------" << m_Name << " Interface----------------------------" 
+	std::cout << "------------------------------" << m_Name << " Interface-------------------------" 
 		      << std::endl;
 
 	GLint outputs = 0;
@@ -115,7 +117,7 @@ void Shader::info()
 		glGetProgramResourceiv(m_Program, GL_PROGRAM_INPUT, i, 2, props, 2, NULL, params);
 		type_name = name;
 		//std::cout << "Index " << i << std::endl;
-		std::cout <<  "(" <<  type_name  << ")" << " locatoin: " << params[1] << std::endl;
+		std::cout <<  "(" <<  type_name  << ")" << " location: " << params[1] << std::endl;
 	}
 
 	glGetProgramInterfaceiv(m_Program, GL_PROGRAM_OUTPUT,  GL_ACTIVE_RESOURCES, &outputs);
@@ -158,7 +160,7 @@ void Shader::info()
 
 		type_name = name;
 		//std::cout << "Index " << i << std::endl;
-		std::cout  <<  "(" <<  type_name  << ")" << " locatoin: " << params[1] << std::endl;
+		std::cout  <<  "(" <<  type_name  << ")" << " location: " << params[1] << std::endl;
 	}
 	std::cout << "--------------------------------------------------------------------------------" << std::endl;
 }
@@ -167,6 +169,7 @@ void Shader::use() const
 {
 	glUseProgram(m_Program);
 }
+
 void Shader::end() const
 {
 	glUseProgram(0);

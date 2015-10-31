@@ -122,7 +122,7 @@
     <ClCompile Include="..\..\include\ogl\App.cpp" />
     <ClCompile Include="..\..\include\ogl\gui.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
-    <ClCompile Include="ch2-03-Triangle.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="triangle.cpp" />
   </ItemGroup>

@@ -121,21 +121,26 @@
   <ItemGroup>
     <ClCompile Include="..\..\include\ogl\App.cpp" />
     <ClCompile Include="..\..\include\ogl\Camera.cpp" />
-    <ClCompile Include="..\..\include\ogl\loadTexture.cpp" />
+    <ClCompile Include="..\..\include\ogl\Debug.cpp" />
+    <ClCompile Include="..\..\include\ogl\gui.cpp" />
+    <ClCompile Include="..\..\include\ogl\mesh.cpp" />
+    <ClCompile Include="..\..\include\ogl\model.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
-    <ClCompile Include="..\..\include\ogl\Texture.cpp" />
     <ClCompile Include="..\..\include\ogl\Utility.cpp" />
+    <ClCompile Include="include\ogl\Exception.cpp" />
+    <ClCompile Include="include\ogl\TextureMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\ogl\App.h" />
     <ClInclude Include="..\..\include\ogl\Camera.h" />
-    <ClInclude Include="..\..\include\ogl\loadTexture.h" />
+    <ClInclude Include="..\..\include\ogl\Debug.h" />
+    <ClInclude Include="..\..\include\ogl\gui.h" />
     <ClInclude Include="..\..\include\ogl\mesh.h" />
     <ClInclude Include="..\..\include\ogl\model.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
-    <ClInclude Include="..\..\include\ogl\textFileRead.h" />
-    <ClInclude Include="..\..\include\ogl\Texture.h" />
     <ClInclude Include="..\..\include\ogl\Utility.h" />
+    <ClInclude Include="include\ogl\Exception.h" />
+    <ClInclude Include="include\ogl\TextureMgr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -36,11 +36,23 @@
     <ClCompile Include="..\..\include\ogl\Utility.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\include\ogl\Texture.cpp">
+    <ClCompile Include="..\..\include\ogl\gui.cpp">
+      <Filter>Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Debug.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\model.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\mesh.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="include\ogl\TextureMgr.cpp">
       <Filter>Texture</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\include\ogl\loadTexture.cpp">
-      <Filter>Texture</Filter>
+    <ClCompile Include="include\ogl\Exception.cpp">
+      <Filter>Exception</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,23 +65,26 @@
     <ClInclude Include="..\..\include\ogl\Shader.h">
       <Filter>Shader</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\ogl\textFileRead.h">
-      <Filter>Shader</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\ogl\Utility.h">
       <Filter>Main</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\ogl\loadTexture.h">
-      <Filter>Texture</Filter>
+    <ClInclude Include="..\..\include\ogl\gui.h">
+      <Filter>Gui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\ogl\Texture.h">
-      <Filter>Texture</Filter>
+    <ClInclude Include="..\..\include\ogl\Debug.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\mesh.h">
+      <Filter>Model</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\ogl\model.h">
       <Filter>Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\ogl\mesh.h">
-      <Filter>Model</Filter>
+    <ClInclude Include="include\ogl\TextureMgr.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ogl\Exception.h">
+      <Filter>Exception</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

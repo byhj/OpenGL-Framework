@@ -10,7 +10,6 @@
 #include <memory>
 
 #include "gui.h"
-#include "AntTweakBar.h"
 
 #ifdef _WIN32
 const int ScreenWidth = static_cast<int>( GetSystemMetrics(SM_CXSCREEN) * 0.75 );
@@ -24,7 +23,8 @@ const int PosX = 300;
 const int PosY = 100;
 #endif
 
-namespace byhj {
+namespace byhj 
+{
 
 namespace ogl
 {
@@ -99,6 +99,6 @@ namespace ogl
 }  //namespace 
 
 
-}
+} //namespace 
 
 #endif  //

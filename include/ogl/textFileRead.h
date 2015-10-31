@@ -1,3 +1,6 @@
+#include <cstdio>
+#include <iostream>
+
 char *textFileRead( char *fn) {  //read the shader code
 	FILE *fp;  
 	char *content = NULL;  

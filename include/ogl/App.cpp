@@ -15,15 +15,6 @@ void App::Run(std::shared_ptr<App> the_app)
 {	
 	app = the_app;
 
-	double time = 0, dt;// Current time and enlapsed time
-	double turn = 0;    // Model turn counter
-	double speed = 0.3; // Model rotation speed
-	int wire = 0;       // Draw model in wireframe?
-	float bgColor[] ={ 0.1f, 0.2f, 0.4f };         // Background color 
-	unsigned char cubeColor[] ={ 255, 0, 0, 128 }; // Model color (32bits RGBA)
-
-    app = the_app;
-
 	std::cout << "Starting GLFW context" << std::endl;
 	if (!glfwInit()) 
 	{
@@ -42,19 +33,13 @@ void App::Run(std::shared_ptr<App> the_app)
 	glfwMakeContextCurrent(window);
 
 
-	//glfwSetKeyCallback(window, glfw_key);
-	//glfwSetCursorPosCallback(window, glfw_mouse);
-	//glfwSetScrollCallback(window, glfw_scroll);
 
-	//GLFWkeyfun is the 
-
-	//// Set GLFW event callbacks. I removed glfwSetWindowSizeCallback for conciseness
 	//glfwSetMouseButtonCallback(window, (GLFWmousebuttonfun)TwEventMouseButtonGLFW); // - Directly redirect GLFW mouse button events to AntTweakBar
 	glfwSetCursorPosCallback(window, glfw_mouse);          // - Directly redirect GLFW mouse position events to AntTweakBar
 	glfwSetScrollCallback(window, glfw_scroll);    // - Directly redirect GLFW mouse wheel events to AntTweakBar
 	glfwSetKeyCallback(window, glfw_key);                         // - Directly redirect GLFW key events to AntTweakBar
-	//glfwSetCharCallback(window, (GLFWcharfun)TwEventCharGLFW);                      // - Directly redirect GLFW char events to AntTweakBar
-
+	//
+	glfwSetCharCallback(window, (GLFWcharfun)TwEventCharGLFW);                      // - Directly redirect GLFW char events to AntTweakBar
 
 
 	// GLFW Options
@@ -101,7 +86,7 @@ void App::Run(std::shared_ptr<App> the_app)
 	while (!glfwWindowShouldClose(window)) 
 	{
 		glfwPollEvents();
-		//v_Movement(window);
+		v_Movement(window);
 
 		//Render for the object
 		v_Render();

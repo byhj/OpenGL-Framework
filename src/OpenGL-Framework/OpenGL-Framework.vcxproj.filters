@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{018d56cd-3a94-429c-9b8e-a81ffb47ae49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{6af674fc-2f4d-4db3-9e1d-608d29c81b8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{ef5d3903-8e9f-4d48-84b2-a0a6b6d56916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{e651acf3-c022-48d1-b585-60ac24ddcaf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{c9d0d141-31b0-4cd2-90e8-563e1efaf395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gui">
+      <UniqueIdentifier>{df61efc1-a6c8-43ae-bacc-e581a551d91d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{2c9b52af-0ca3-4d6f-88d3-5b846aa75350}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\include\ogl\App.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Shader.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Utility.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Texture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\loadTexture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\ogl\App.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\Shader.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\textFileRead.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\Utility.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\loadTexture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\Texture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\model.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\mesh.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{527C2BBD-5917-4A1B-93B5-47FA23460740}</ProjectGuid>
-    <RootNamespace>Framework</RootNamespace>
+    <ProjectGuid>{EF8ACC5A-8877-43F2-B3A8-DC7D5DA0DF24}</ProjectGuid>
+    <RootNamespace>OpenGLFramework</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -57,7 +57,7 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\OpenGL-Framework.props" />
+    <Import Project="..\..\OpenGL-Framework(x86).props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -119,32 +119,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\include\ogl\App.cpp" />
+    <ClCompile Include="..\..\include\ogl\Camera.cpp" />
+    <ClCompile Include="..\..\include\ogl\loadTexture.cpp" />
+    <ClCompile Include="..\..\include\ogl\Shader.cpp" />
+    <ClCompile Include="..\..\include\ogl\Texture.cpp" />
+    <ClCompile Include="..\..\include\ogl\Utility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="..\..\include\ogl\App.h" />
     <ClInclude Include="..\..\include\ogl\Camera.h" />
-    <ClInclude Include="..\..\include\ogl\glDebug.h" />
-    <ClInclude Include="..\..\include\ogl\gui.h" />
     <ClInclude Include="..\..\include\ogl\loadTexture.h" />
     <ClInclude Include="..\..\include\ogl\mesh.h" />
     <ClInclude Include="..\..\include\ogl\model.h" />
-    <ClInclude Include="..\..\include\ogl\object.h" />
-    <ClInclude Include="..\..\include\ogl\oglDebug.h" />
-    <ClInclude Include="..\..\include\ogl\oglLight.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
     <ClInclude Include="..\..\include\ogl\textFileRead.h" />
     <ClInclude Include="..\..\include\ogl\Texture.h" />
     <ClInclude Include="..\..\include\ogl\Utility.h" />
-    <ClInclude Include="..\..\include\ogl\vmath.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\include\ogl\App.cpp" />
-    <ClCompile Include="..\..\include\ogl\Camera.cpp" />
-    <ClCompile Include="..\..\include\ogl\gui.cpp" />
-    <ClCompile Include="..\..\include\ogl\loadTexture.cpp" />
-    <ClCompile Include="..\..\include\ogl\object.cpp" />
-    <ClCompile Include="..\..\include\ogl\oglDebug.cpp" />
-    <ClCompile Include="..\..\include\ogl\Shader.cpp" />
-    <ClCompile Include="..\..\include\ogl\Texture.cpp" />
-    <ClCompile Include="..\..\include\ogl\Utility.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

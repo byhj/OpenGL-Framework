@@ -120,7 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\include\ogl\App.cpp" />
-    <ClCompile Include="..\..\include\ogl\gui.cpp" />
+    <ClCompile Include="..\..\include\ogl\Gui.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
@@ -128,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\ogl\App.h" />
-    <ClInclude Include="..\..\include\ogl\gui.h" />
+    <ClInclude Include="..\..\include\ogl\Gui.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="triangle.h" />

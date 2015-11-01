@@ -13,9 +13,9 @@ namespace byhj
 			Gui() = default;
 			~Gui() = default;
 
-			void Init(int sw, int sh);
-			void Render();
-			void Shutdown();
+			virtual void Init(int sw, int sh);
+			virtual void Render();
+			virtual void Shutdown();
 		};
 	}
 }

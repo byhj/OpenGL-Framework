@@ -1,5 +1,5 @@
-#ifndef OGLAPP_H
-#define OGLAPP_H
+#ifndef __APP_H_
+#define __APP_H_
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -8,8 +8,7 @@
 #include <string>
 #include <windows.h>
 #include <memory>
-
-#include "gui.h"
+#include <AntTweakBar.h>
 
 #ifdef _WIN32
 const int ScreenWidth = static_cast<int>( GetSystemMetrics(SM_CXSCREEN) * 0.75 );

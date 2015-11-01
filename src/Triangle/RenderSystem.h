@@ -3,7 +3,7 @@
 
 #include "ogl/App.h"
 #include "Triangle.h"
-#include "ogl/gui.h"
+#include "triangleGui.h"
 
 namespace byhj
 {
@@ -21,7 +21,7 @@ public:
 	void v_Shutdown();
 
 private:
-	ogl::Gui  myGui;
+	byhj::TriangleGui  myGui;
 	byhj::Triangle m_Triangle;
 };
 

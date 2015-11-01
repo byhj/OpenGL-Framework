@@ -6,10 +6,63 @@ namespace byhj
 namespace ogl
 {
 
+////////////////////////////////////////////////////////////////////////////////////////
+
+void App::v_KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
+{
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
+	if (key == GLFW_KEY_C && action == GLFW_PRESS)
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+}
 
 std::shared_ptr<App> App::app;
 
-bool gLookAtOther = true;
+////////////////////////////////////////////////////////////////////////////////////////
+
+ void App::glfw_key(GLFWwindow * window, int key, int scancode, int action, int mode)
+{
+#ifdef USE_ANT
+	TwEventKeyGLFW(key, action);
+#else
+	app->v_KeyCallback(window, key, scancode, action, mode);
+#endif
+}
+
+ ////////////////////////////////////////////////////////////////////////////////////////
+
+void App::glfw_mouse(GLFWwindow* window, double xpos, double ypos)
+{
+#ifdef USE_ANT
+	TwEventMousePosGLFW(xpos, ypos);
+#else
+	app->v_MouseCallback(window, xpos, ypos);
+#endif
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+ void App::glfw_scroll(GLFWwindow* window, double xoffset, double yoffset)
+{
+#ifndef USE_ANT
+	TwEventMouseWheelGLFW(xoffset);
+#else
+	app->v_ScrollCallback(window, xoffset, yoffset);
+#endif
+}
+
+ ////////////////////////////////////////////////////////////////////////////////////////
+void App::glfw_mouseButton(GLFWwindow *window, int x, int y, int z)
+{
+	TwEventMouseButtonGLFW(x, y);
+}
+ void App::glfw_char(GLFWwindow *window, unsigned int x)
+{
+	TwEventCharGLFW(x, 0);
+}
+
+ ////////////////////////////////////////////////////////////////////////////////////////
+
 
 void App::Run(std::shared_ptr<App> the_app)
 {	
@@ -32,15 +85,14 @@ void App::Run(std::shared_ptr<App> the_app)
 	glfwSetWindowPos(window, windowInfo.posX, windowInfo.posY);
 	glfwMakeContextCurrent(window);
 
-
-
-	//glfwSetMouseButtonCallback(window, (GLFWmousebuttonfun)TwEventMouseButtonGLFW); // - Directly redirect GLFW mouse button events to AntTweakBar
+	
 	glfwSetCursorPosCallback(window, glfw_mouse);          // - Directly redirect GLFW mouse position events to AntTweakBar
 	glfwSetScrollCallback(window, glfw_scroll);    // - Directly redirect GLFW mouse wheel events to AntTweakBar
 	glfwSetKeyCallback(window, glfw_key);                         // - Directly redirect GLFW key events to AntTweakBar
-	//
-	glfwSetCharCallback(window, (GLFWcharfun)TwEventCharGLFW);                      // - Directly redirect GLFW char events to AntTweakBar
-
+#ifdef USE_ANT
+	glfwSetMouseButtonCallback(window, glfw_mouseButton); // - Directly redirect GLFW mouse button events to AntTweakBar
+	glfwSetCharCallback(window, glfw_char);                      // - Directly redirect GLFW char events to AntTweakBar
+#endif
 
 	// GLFW Options
 	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);

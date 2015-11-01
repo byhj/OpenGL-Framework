@@ -14,7 +14,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Framework">
-      <UniqueIdentifier>{1c103771-9b57-4e02-87d9-642ee254a15e}</UniqueIdentifier>
+      <UniqueIdentifier>{c84132dc-1210-42f4-9254-891caaddd266}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,14 +27,17 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\include\ogl\App.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\include\ogl\Gui.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="..\..\include\ogl\Shader.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\include\ogl\App.cpp">
-      <Filter>Framework</Filter>
+    <ClCompile Include="TriangleGui.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -44,22 +47,25 @@
     <ClInclude Include="triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\ogl\App.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\include\ogl\Gui.h">
       <Filter>Framework</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\ogl\Shader.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\ogl\App.h">
-      <Filter>Framework</Filter>
+    <ClInclude Include="triangleGui.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="triangle.vert">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="triangle.frag">
-      <Filter>Resource Files</Filter>
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="triangle.vert">
+      <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
 </Project>

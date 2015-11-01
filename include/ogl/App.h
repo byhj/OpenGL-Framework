@@ -10,6 +10,8 @@
 #include <memory>
 #include <AntTweakBar.h>
 
+#define USE_ANT
+
 #ifdef _WIN32
 const int ScreenWidth = static_cast<int>( GetSystemMetrics(SM_CXSCREEN) * 0.75 );
 const int ScreenHeight = static_cast<int>(  GetSystemMetrics(SM_CYSCREEN) * 0.75 );
@@ -43,14 +45,7 @@ namespace ogl
 		virtual void v_Render()	  = 0;
 		virtual void v_Shutdown() = 0;
 
-		virtual void v_KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode) 
-		{
-			if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-				glfwSetWindowShouldClose(window, GL_TRUE);
-			if (key ==  GLFW_KEY_C && action == GLFW_PRESS)
-				glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-		}
-
+		virtual void v_KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
 		virtual void v_Movement(GLFWwindow *window) {}
 		virtual void v_MouseCallback(GLFWwindow* window, double xpos, double ypos) {}
 		virtual void v_ScrollCallback(GLFWwindow* window, double xoffset, double yoffset) {}
@@ -58,11 +53,11 @@ namespace ogl
 	protected:
 		struct WindowInfo
 		{
-			WindowInfo():title("OpenGL BlueBook : "), 
-				        Width(ScreenWidth), 
-						Height(ScreenHeight),
-				        posX(PosX), 
-						posY(PosY) {}
+			WindowInfo() :title("OpenGL BlueBook : "),
+				Width(ScreenWidth),
+				Height(ScreenHeight),
+				posX(PosX),
+				posY(PosY) {}
 
 			std::string title;
 			int Width;
@@ -74,25 +69,15 @@ namespace ogl
 		int GetScreenWidth();
 		int GetScreenHeight();
 
-	protected:
-	    static  std::shared_ptr<App> app;
+	private:
+		static  std::shared_ptr<App> app;
 
-	    static void glfw_key(GLFWwindow * window, int key, int scancode, int action, int mode) 
-	    {
-			TwEventKeyGLFW(key, action);
-	    	//app->v_KeyCallback(window,  key,  scancode, action,  mode);
-	    }
-	    static void glfw_mouse(GLFWwindow* window, double xpos, double ypos)
-	    {
-			TwEventMousePosGLFW(xpos, ypos);
-	    	//app->v_MouseCallback(window,  xpos, ypos);
-	    }
-	    static void glfw_scroll(GLFWwindow* window, double xoffset, double yoffset)
-	    {
-			TwEventMouseWheelGLFW(xoffset);
-	    	//app->v_ScrollCallback(window,  xoffset, yoffset);
-	    }
-	    
+		static void glfw_key(GLFWwindow * window, int key, int scancode, int action, int mode);
+		static void glfw_mouse(GLFWwindow* window, double xpos, double ypos);
+		static void glfw_scroll(GLFWwindow* window, double xoffset, double yoffset);
+		static void glfw_mouseButton(GLFWwindow *window, int x, int y, int z);
+		static void glfw_char(GLFWwindow *window, unsigned int x);
+
 	};  //class
 
 }  //namespace 

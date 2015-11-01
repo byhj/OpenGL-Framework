@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{15D95C3B-7EE6-4082-A1DA-FBA63FC9B63A}</ProjectGuid>
-    <RootNamespace>Test</RootNamespace>
+    <ProjectGuid>{35B3FA3B-9DD8-4044-8E49-665ECCC929FC}</ProjectGuid>
+    <RootNamespace>Triangle</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -125,6 +125,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="triangle.cpp" />
+    <ClCompile Include="TriangleGui.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\ogl\App.h" />
@@ -132,6 +133,7 @@
     <ClInclude Include="..\..\include\ogl\Shader.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="triangle.h" />
+    <ClInclude Include="triangleGui.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="triangle.frag" />

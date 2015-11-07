@@ -7,15 +7,17 @@ namespace byhj
 {
 	namespace ogl
 	{
-		class Gui
+		class GUI
 		{
 		public:
-			Gui() = default;
-			~Gui() = default;
+			 GUI();
+			virtual ~GUI();
 
-			virtual void Init(int sw, int sh);
-			virtual void Render();
-			virtual void Shutdown();
+			virtual void v_Init(int sw, int sh) = 0;
+			virtual void v_Render() = 0;
+			virtual void v_Shutdown() = 0;
+		private:
+
 		};
 	}
 }

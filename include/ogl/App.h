@@ -42,6 +42,7 @@ namespace ogl
 		//Override
 		virtual void v_InitInfo() = 0;
 		virtual void v_Init()	  = 0;
+		virtual void v_Update()   = 0;
 		virtual void v_Render()	  = 0;
 		virtual void v_Shutdown() = 0;
 

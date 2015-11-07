@@ -4,23 +4,14 @@ namespace byhj
 {
 	namespace ogl
 	{
-		void Gui::Init(int sw, int sh)
+		GUI::GUI()
 		{
-			// Initialize the GUI
-			TwInit(TW_OPENGL_CORE, NULL);
-			TwWindowSize(sw, sh);
+
 		}
 
-		void Gui::Render()
+		GUI::~GUI()
 		{
-			// Draw tweak bars
-			TwDraw();
-		}
 
-		void Gui::Shutdown()
-		{
-			// Terminate AntTweakBar and GLFW
-			TwTerminate();
 		}
 	}
 }

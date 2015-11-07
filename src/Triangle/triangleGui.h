@@ -5,7 +5,7 @@
 namespace byhj
 {
 
-	class TriangleGui : public ogl::Gui
+	class TriangleGui : public ogl::GUI
 	{
 
 	  public:

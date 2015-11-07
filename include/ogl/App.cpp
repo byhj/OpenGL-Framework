@@ -140,10 +140,9 @@ void App::Run(std::shared_ptr<App> the_app)
 		glfwPollEvents();
 		v_Movement(window);
 
+		v_Update();
 		//Render for the object
 		v_Render();
-
-
 
 		glfwSwapBuffers(window);
 	}

@@ -14,18 +14,32 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Framework">
-      <UniqueIdentifier>{c84132dc-1210-42f4-9254-891caaddd266}</UniqueIdentifier>
+      <UniqueIdentifier>{d61c2044-0b69-4802-8d1d-8bacb7ec5827}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="triangle.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="triangle.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="triangle.tcs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="triangle.tes">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="triangle.geom">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RenderSystem.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="triangle.cpp">
+    <ClCompile Include="TessGUI.cpp">
       <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\include\ogl\App.cpp">
       <Filter>Framework</Filter>
@@ -36,15 +50,18 @@
     <ClCompile Include="..\..\include\ogl\Shader.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="TriangleGui.cpp">
+    <ClCompile Include="TessTriangle.cpp">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="triangle.h">
+    <ClInclude Include="TessGUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\ogl\App.h">
@@ -56,16 +73,8 @@
     <ClInclude Include="..\..\include\ogl\Shader.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="triangleGui.h">
+    <ClInclude Include="TessTriangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="triangle.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="triangle.vert">
-      <Filter>Resource Files</Filter>
-    </None>
   </ItemGroup>
 </Project>

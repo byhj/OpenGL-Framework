@@ -4,7 +4,7 @@ namespace byhj
 {
 	void TriangleGui::Init(int sw, int sh)
 	{
-		ogl::Gui::Init(sw, sh);
+		ogl::GUI::Init(sw, sh);
 		TwBar *bar = TwNewBar("TweakBar");
 		TwDefine(" GLOBAL help='This example shows how to integrate AntTweakBar with GLFW and OpenGL.' "); // Message added to the help bar.
 																										   // Add 'speed' to 'bar': it is a modifable (RW) variable of type TW_TYPE_DOUBLE. Its key shortcuts are [s] and [S].
@@ -28,11 +28,11 @@ namespace byhj
 
 	void TriangleGui::Render()
 	{
-		ogl::Gui::Render();
+		ogl::GUI::Render();
 	}
 
 	void TriangleGui::Shutdown()
 	{
-		ogl::Gui::Shutdown();
+		ogl::GUI::Shutdown();
 	}
 }

@@ -12,18 +12,18 @@ out VS_OUT
 }vs_out;
 
 
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 proj;
+uniform mat4 u_Model;
+uniform mat4 u_View;
+uniform mat4 u_Proj;
 
 void main(void)
 {
-   mat4 mvp =  proj * view * model;
-   mat3 normal_mat = mat3(view * model);
+   mat4 mvp =  u_Proj * u_View * u_Model;
+   mat3 normal_mat = mat3(u_View *u_Model);
 
    gl_Position = mvp * vec4(g_Position, 1.0f);
-   vs_out.FragPos = model * g_Position;
-   vs_out.Normal = transpose(inverse(normal_mat * g_Normal));
-   vs_out.TexCoor = g_TexCoord;
+   vs_out.FragPos = mat3(u_Model) * g_Position;
+   vs_out.Normal = transpose(inverse(normal_mat)) * g_Normal;
+   vs_out.TexCoord = g_TexCoord;
 
 }

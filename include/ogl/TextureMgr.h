@@ -19,11 +19,11 @@ namespace byhj
 			~TextureMgr() = default;
 
 			void Init(std::string folder = "../../media/textures/");
-			bool LoadTexture(const std::string &fileName);
-			bool LoadTexture(const std::string &fileName, GLboolean alpha);
-			bool LoadTexture(const std::vector<std::string> &faces);
-			bool UnLoadTexture(const std::string &fileName);
-			GLuint GetTexID(const std::string &name) const
+			GLuint LoadTexture(const std::string &fileName);
+			GLuint LoadTexture(const std::string &fileName, GLboolean alpha);
+			GLuint LoadTexture(const std::vector<std::string> &faces);
+			void UnLoadTexture(const std::string &fileName);
+			GLuint GetTexID(const std::string &name) 
 			{
 				return m_TexID[name];
 			}

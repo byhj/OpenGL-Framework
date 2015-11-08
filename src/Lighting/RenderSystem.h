@@ -2,6 +2,7 @@
 #define RenderSystem_H
 
 #include "ogl/App.h"
+#include "Plane.h"
 
 namespace byhj
 {
@@ -18,7 +19,7 @@ namespace byhj
 		void v_Shutdown() override;
 
 	private:
-
+		Plane m_Plane;
 	};
 }
 

@@ -14,7 +14,7 @@ namespace byhj
 	   Plane() = default;
 	  ~Plane() = default;
 
-	  void Init();
+	  void Init(int sw, int sh);
 	  void Update();
 	  void Render();
 	  void Shutdown();
@@ -35,7 +35,13 @@ namespace byhj
 		   GLuint model;
 		   GLuint view;
 		   GLuint proj;
+		   GLuint gamma;
+		   GLuint viewPos;
+		   GLuint lightPos;
+		   GLuint lightColor;
 		   GLuint woodTex;
+		   GLuint lightModelSub;
+		   GLuint lightSub[2];
 	   }uniform_loc;
 
 	   GLuint program = 0;
@@ -43,6 +49,7 @@ namespace byhj
 	   GLuint vbo = 0;
 	   GLuint ibo = 0;
 	   GLuint woodTex;
+	   GLfloat aspect = 1.0f;
 
    };
 

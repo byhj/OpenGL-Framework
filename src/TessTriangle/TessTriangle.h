@@ -3,6 +3,7 @@
 
 
 #include "ogl/Shader.h"
+#include "ogl/Debug.h"
 #include <glfw/glfw3.h>
 #include "TessGUI.h"
 
@@ -39,7 +40,9 @@ namespace byhj
 		}uniform_loc;
 
 		ogl::Shader TessShader = {"TessTrianglerShader"};
-	    GLuint vao, vbo, ibo;
+		ogl::Debug  m_Debug;
+
+		GLuint vao, vbo, ibo;
 		GLuint program;
 		GLuint sw, sh;
 		TessGUI m_TessGUI;

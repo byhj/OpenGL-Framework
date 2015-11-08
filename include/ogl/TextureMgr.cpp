@@ -9,7 +9,7 @@ namespace byhj
 			this->folder = folder;
 		}
 
-		bool TextureMgr::LoadTexture(const std::string &fileName)
+		GLuint TextureMgr::LoadTexture(const std::string &fileName)
 		{
 			std::string textureFile = folder + fileName;
 			int width, height;
@@ -34,9 +34,11 @@ namespace byhj
 
 			SOIL_free_image_data(image);
 			glBindTexture(GL_TEXTURE_2D, 0);
+
+			return tex;
 		}
 
-		bool TextureMgr::LoadTexture(const std::string &fileName, GLboolean alpha)
+		GLuint TextureMgr::LoadTexture(const std::string &fileName, GLboolean alpha)
 		{
 			std::string textureFile = folder + fileName;
 			int width, height;
@@ -63,9 +65,11 @@ namespace byhj
 
 			SOIL_free_image_data(image);
 			glBindTexture(GL_TEXTURE_2D, 0);
+
+			return tex;
 		}
 
-		bool TextureMgr::LoadTexture(const std::vector<std::string> &faces)
+		GLuint TextureMgr::LoadTexture(const std::vector<std::string> &faces)
 		{
 
 			int width, height;
@@ -96,9 +100,11 @@ namespace byhj
 			glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 			
 			m_TexID[faces[0]] = tex;
+
+			return tex;
 		}
 
-		bool TextureMgr::UnLoadTexture(const std::string &fileName)
+		void TextureMgr::UnLoadTexture(const std::string &fileName)
 		{
 			auto iter = m_TexID.find(fileName);
 			if (iter != m_TexID.end())
@@ -106,7 +112,6 @@ namespace byhj
 				m_TexID.erase(fileName);
 			}
 
-			return true;
 		}
 	}
 }

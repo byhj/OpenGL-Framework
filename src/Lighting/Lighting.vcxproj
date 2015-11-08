@@ -120,20 +120,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\ogl\App.h" />
+    <ClInclude Include="..\..\include\ogl\Camera.h" />
     <ClInclude Include="..\..\include\ogl\Gui.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
     <ClInclude Include="..\..\include\ogl\TextureMgr.h" />
-    <ClInclude Include="light.frag" />
+    <None Include="light.frag">
+      <FileType>Document</FileType>
+    </None>
     <ClInclude Include="LightGUI.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="RenderSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\include\ogl\App.cpp" />
+    <ClCompile Include="..\..\include\ogl\Camera.cpp" />
     <ClCompile Include="..\..\include\ogl\Gui.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
     <ClCompile Include="..\..\include\ogl\TextureMgr.cpp" />
-    <ClCompile Include="light.vert" />
+    <None Include="light.vert">
+      <FileType>Document</FileType>
+    </None>
     <ClCompile Include="LightGUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Plane.cpp" />

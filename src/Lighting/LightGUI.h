@@ -1,7 +1,9 @@
 #ifndef LightGUI_H
 #define LightGUI_H
 
+#include <gl/glew.h>
 #include "ogl/gui.h"
+#include <glm/glm.hpp>
 
 namespace byhj
 {
@@ -16,6 +18,9 @@ namespace byhj
 		void v_Shutdown();
 
 	private:
+		
+		glm::vec3 m_LightColors[4];
+		GLboolean m_Gamma;
 
 	};
 }

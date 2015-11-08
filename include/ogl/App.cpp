@@ -22,6 +22,9 @@ std::shared_ptr<App> App::app;
 
  void App::glfw_key(GLFWwindow * window, int key, int scancode, int action, int mode)
 {
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
+
 #ifdef USE_ANT
 	TwEventKeyGLFW(key, action);
 #else
@@ -58,7 +61,7 @@ void App::glfw_mouseButton(GLFWwindow *window, int x, int y, int z)
 }
  void App::glfw_char(GLFWwindow *window, unsigned int x)
 {
-	TwEventCharGLFW(x, 0);
+	TwEventCharGLFW(x, GLFW_PRESS);
 }
 
  ////////////////////////////////////////////////////////////////////////////////////////
@@ -80,6 +83,7 @@ void App::Run(std::shared_ptr<App> the_app)
 	//Add this to use the debug output
 	glfwWindowHint( GLFW_OPENGL_DEBUG_CONTEXT, true );
 
+
 	GLFWwindow *window = glfwCreateWindow(windowInfo.Width, windowInfo.Height,
 		                                  windowInfo.title.c_str(), nullptr, nullptr);
 	glfwSetWindowPos(window, windowInfo.posX, windowInfo.posY);
@@ -93,7 +97,7 @@ void App::Run(std::shared_ptr<App> the_app)
 	glfwSetMouseButtonCallback(window, glfw_mouseButton); // - Directly redirect GLFW mouse button events to AntTweakBar
 	glfwSetCharCallback(window, glfw_char);                      // - Directly redirect GLFW char events to AntTweakBar
 #endif
-
+	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 	// GLFW Options
 	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 

@@ -76,7 +76,7 @@ namespace byhj
 		glUniform4fv(uniform_loc.ambient, 1, &ambientMat[0]);
 		glUniform4fv(uniform_loc.diffuse, 1, &diffuseMat[0]);
 
-		float elapsedTime  = glfwGetTime() / 1000.0f;
+		float elapsedTime  = glfwGetTime() / 5.0f;
 		glm::mat4 model = glm::rotate(glm::mat4(1.0f), elapsedTime, glm::vec3(1.0f, 0.0f, 0.0f));
 		glm::mat4 view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glm::mat4 proj = glm::perspective(45.0f, static_cast<float>(sw) / sh, 0.1f, 1000.0f);
@@ -132,7 +132,6 @@ namespace byhj
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(IndexData), IndexData, GL_STATIC_DRAW);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-		glBindVertexArray(0);
 	}
 
 	void TessTriangle::init_vertexArray()
@@ -168,9 +167,10 @@ namespace byhj
 		uniform_loc.view  = glGetUniformLocation(program, "view");
 		uniform_loc.proj  = glGetUniformLocation(program, "proj");
 
-		uniform_loc.lightDir = glGetUniformLocation(program, "lightDir");
+
 		uniform_loc.ambient  = glGetUniformLocation(program, "ambientMat");
 		uniform_loc.diffuse  = glGetUniformLocation(program, "diffuseMat");
+		uniform_loc.lightDir = glGetUniformLocation(program, "lightDir");
 
 		uniform_loc.tessInner = glGetUniformLocation(program, "tessInner");
 		uniform_loc.tessOuter = glGetUniformLocation(program, "tessOuter");

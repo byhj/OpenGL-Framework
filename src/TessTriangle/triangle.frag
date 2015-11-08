@@ -5,11 +5,11 @@ layout (location = 0) out vec4  FragColor;
 in GE_OUT
 {
   vec3 FacetNormal;
-  vec3 TriDistance;
   vec3 PatchDistance;
+  vec3 TriDistance;
 }ge_out;
 
-uniform vec3 lightDir = vec3(0.0f, 2.0f, 0.0f);
+uniform vec3 lightDir;
 uniform vec4 diffuseMat;
 uniform vec4 ambientMat;
 
@@ -26,7 +26,8 @@ float amplify(float d, float scale, float offset)
 void main(void)
 {
   vec3 N = normalize(ge_out.FacetNormal);
-  float df = abs(dot(N, lightDir));
+  vec3 L = lightDir;
+  float df = abs(dot(N, L));
   vec4 color = ambientMat + diffuseMat;
 
   float d1 = min(min(ge_out.TriDistance.x, ge_out.TriDistance.y), ge_out.TriDistance.z);

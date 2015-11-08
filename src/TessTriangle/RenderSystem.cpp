@@ -22,7 +22,7 @@ namespace byhj
 
 	void RenderSystem::v_Render()
 	{
-		static const GLfloat black[] ={ 0.0f, 0.0f, 0.0f, 1.0f };
+		static const GLfloat black[] ={0.0f, 0.0f, 0.0f, 1.0f };
 		static const GLfloat one[] ={ 1.0f };
 		glClearBufferfv(GL_COLOR, 0, black);
 		glClearBufferfv(GL_DEPTH, 0, one);

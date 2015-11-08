@@ -23,7 +23,10 @@ namespace byhj
 			bool LoadTexture(const std::string &fileName, GLboolean alpha);
 			bool LoadTexture(const std::vector<std::string> &faces);
 			bool UnLoadTexture(const std::string &fileName);
-
+			GLuint GetTexID(const std::string &name) const
+			{
+				return m_TexID[name];
+			}
 		private:
 			std::unordered_map<std::string, GLuint> m_TexID;
 			std::string folder;

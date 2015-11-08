@@ -14,34 +14,20 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Framework">
-      <UniqueIdentifier>{c84132dc-1210-42f4-9254-891caaddd266}</UniqueIdentifier>
+      <UniqueIdentifier>{498c6dfb-5279-4576-8f52-22de1d22cef5}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="RenderSystem.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="triangle.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\ogl\App.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\ogl\Gui.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\ogl\Shader.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="triangle.h">
+    <ClInclude Include="Plane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="light.frag">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LightGUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\ogl\App.h">
@@ -53,13 +39,37 @@
     <ClInclude Include="..\..\include\ogl\Shader.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\ogl\TextureMgr.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="triangle.frag">
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="light.vert">
       <Filter>Resource Files</Filter>
-    </None>
-    <None Include="triangle.vert">
-      <Filter>Resource Files</Filter>
-    </None>
+    </ClCompile>
+    <ClCompile Include="LightGUI.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\App.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Gui.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Shader.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\TextureMgr.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

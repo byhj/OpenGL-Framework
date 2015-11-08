@@ -3,7 +3,6 @@
 
 #include "ogl/App.h"
 #include "Triangle.h"
-#include "triangleGui.h"
 
 namespace byhj
 {
@@ -17,11 +16,11 @@ public:
 public:
 	void v_InitInfo();
 	void v_Init();
+	void v_Update();
 	void v_Render();
 	void v_Shutdown();
 
 private:
-	byhj::TriangleGui  myGui;
 	byhj::Triangle m_Triangle;
 };
 

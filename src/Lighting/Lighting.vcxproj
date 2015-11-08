@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{35B3FA3B-9DD8-4044-8E49-665ECCC929FC}</ProjectGuid>
-    <RootNamespace>Triangle</RootNamespace>
+    <ProjectGuid>{B59A4E8E-BC0D-47C8-8780-A3727B5A666B}</ProjectGuid>
+    <RootNamespace>Lighting</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -119,23 +119,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\include\ogl\App.cpp" />
-    <ClCompile Include="..\..\include\ogl\Gui.cpp" />
-    <ClCompile Include="..\..\include\ogl\Shader.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="RenderSystem.cpp" />
-    <ClCompile Include="triangle.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\include\ogl\App.h" />
     <ClInclude Include="..\..\include\ogl\Gui.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
+    <ClInclude Include="..\..\include\ogl\TextureMgr.h" />
+    <ClInclude Include="light.frag" />
+    <ClInclude Include="LightGUI.h" />
+    <ClInclude Include="Plane.h" />
     <ClInclude Include="RenderSystem.h" />
-    <ClInclude Include="triangle.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="triangle.frag" />
-    <None Include="triangle.vert" />
+    <ClCompile Include="..\..\include\ogl\App.cpp" />
+    <ClCompile Include="..\..\include\ogl\Gui.cpp" />
+    <ClCompile Include="..\..\include\ogl\Shader.cpp" />
+    <ClCompile Include="..\..\include\ogl\TextureMgr.cpp" />
+    <ClCompile Include="light.vert" />
+    <ClCompile Include="LightGUI.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="RenderSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

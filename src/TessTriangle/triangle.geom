@@ -21,7 +21,7 @@ uniform mat4 view;
 
 void main(void)
 {
-   mat3 normal_mat = mat3(inverse(transpose(model * view) ) );
+   mat3 normal_mat = mat3(transpose(inverse(view * model) ) );
    vec3 A = te_out[2].Pos - te_out[0].Pos;
    vec3 B = te_out[1].Pos - te_out[0].Pos;
    ge_out.FacetNormal = normal_mat * normalize(cross(A, B));

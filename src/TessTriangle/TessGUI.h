@@ -30,11 +30,11 @@ namespace byhj
 
 	private:
 		GLboolean m_WireFrame = false;
-		GLuint m_TessInner = 2;
-		GLuint m_TessOuter = 3;
+		GLuint m_TessInner = 3;
+		GLuint m_TessOuter = 2;
 		glm::vec4 m_AmbientMat = glm::vec4(0.04f, 0.04f, 0.04f, 1.0f);
 		glm::vec4 m_DiffuseMat = glm::vec4(0.0f, 0.75, 0.75, 1.0f);
-		glm::vec3 m_LightDir =   glm::vec3(-0.57f, -0.57f, -0.57f);
+		glm::vec3 m_LightDir =   glm::vec3(0.25f, 0.25f, -1.0f);
 	};
 }
 #endif

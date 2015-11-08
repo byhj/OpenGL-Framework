@@ -7,6 +7,7 @@ in GE_OUT
   vec3 FacetNormal;
   vec3 PatchDistance;
   vec3 TriDistance;
+
 }ge_out;
 
 uniform vec3 lightDir;
@@ -27,8 +28,12 @@ void main(void)
 {
   vec3 N = normalize(ge_out.FacetNormal);
   vec3 L = lightDir;
-  float df = abs(dot(N, L));
-  vec4 color = ambientMat + diffuseMat;
+  float df = max(0.0f, dot(N, L) );
+ // vec3 viewDir = camPos - vec3(gl_FragCoord.x / 1000.0f, gl_FragCoord.y / 600.0f, gl_FragCoord.z);
+ // vec3 R = reflect(-L, N);
+  //float sp = max(0.0f, dot(viewDir, R));
+
+  vec4 color = ambientMat + df * diffuseMat;// + pow(sp, 32) * diffuseMat;
 
   float d1 = min(min(ge_out.TriDistance.x, ge_out.TriDistance.y), ge_out.TriDistance.z);
   float d2 = min(min(ge_out.PatchDistance.x, ge_out.PatchDistance.y), ge_out.PatchDistance.z);

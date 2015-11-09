@@ -120,6 +120,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="font.frag" />
+    <None Include="font.vert" />
     <None Include="triangle.frag" />
     <None Include="triangle.geom" />
     <None Include="triangle.tcs" />
@@ -131,6 +133,7 @@
     <ClCompile Include="..\..\include\ogl\Debug.cpp" />
     <ClCompile Include="..\..\include\ogl\Gui.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
+    <ClCompile Include="Font.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="TessGUI.cpp" />
     <ClCompile Include="TessTriangle.cpp" />
@@ -141,6 +144,7 @@
     <ClInclude Include="..\..\include\ogl\Debug.h" />
     <ClInclude Include="..\..\include\ogl\Gui.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
+    <ClInclude Include="Font.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="TessGUI.h" />
     <ClInclude Include="TessTriangle.h" />

@@ -70,6 +70,18 @@ namespace ogl
 		int GetScreenWidth();
 		int GetScreenHeight();
 
+		std::string GetGLRenderer()
+		{
+			return m_GLRenderer;
+		}
+		std::string GetGLVersion()
+		{
+			return m_GLVersion;
+		}
+		std::string GetGLSLVersion()
+		{
+			return m_GLSLVersion;
+		}
 	private:
 		static  std::shared_ptr<App> app;
 
@@ -78,6 +90,10 @@ namespace ogl
 		static void glfw_scroll(GLFWwindow* window, double xoffset, double yoffset);
 		static void glfw_mouseButton(GLFWwindow *window, int x, int y, int z);
 		static void glfw_char(GLFWwindow *window, unsigned int x);
+		
+		std::string m_GLRenderer;
+		std::string m_GLVersion;
+		std::string m_GLSLVersion;
 
 	};  //class
 

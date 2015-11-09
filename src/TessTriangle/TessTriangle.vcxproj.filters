@@ -33,6 +33,12 @@
     <None Include="triangle.geom">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="font.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="font.frag">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RenderSystem.cpp">
@@ -59,6 +65,9 @@
     <ClCompile Include="..\..\include\ogl\Debug.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderSystem.h">
@@ -81,6 +90,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\ogl\Debug.h">
       <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -91,9 +91,7 @@ namespace byhj
 	void TessTriangle::Render()
 	{
 
-		//Render the GUI
-		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-		m_TessGUI.v_Render();
+
 
 		auto wireFrame  = m_TessGUI.GetWireFrame();
 		glPolygonMode(GL_FRONT_AND_BACK, wireFrame ? GL_LINE : GL_FILL);
@@ -107,6 +105,10 @@ namespace byhj
 
 		glBindVertexArray(0);
 		glUseProgram(0);
+
+		//Render the GUI
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		m_TessGUI.v_Render();
 	}
 
 	void TessTriangle::Shutdown()

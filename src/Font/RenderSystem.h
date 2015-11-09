@@ -20,6 +20,9 @@ namespace byhj
 		void v_Shutdown() override;
 
 	private:
+		void countFps();
+
+		int  m_Fps;
 		Font m_Font;
 
 	};

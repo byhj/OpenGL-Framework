@@ -8,7 +8,8 @@ namespace byhj
 		TwWindowSize(sw, sh);
 
 		TwBar *pBar = TwNewBar("TessGUI");
-
+		TwDefine(" TessGUI label='TessGUI' position='750 16' alpha=0 help='Use this bar to edit the tess.' ");
+		
 		TwAddVarRW(pBar, "wire", TW_TYPE_BOOL32, &m_WireFrame,
 				" label='Wireframe mode' key=w help='Toggle wireframe display mode.' ");
 

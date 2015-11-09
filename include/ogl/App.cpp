@@ -119,6 +119,11 @@ void App::Run(std::shared_ptr<App> the_app)
 	const GLubyte *vendor = glGetString( GL_VENDOR );  
 	const GLubyte *version = glGetString( GL_VERSION );  
 	const GLubyte *glslVersion = glGetString( GL_SHADING_LANGUAGE_VERSION );  
+
+	m_GLRenderer = (const char *)renderer;
+	m_GLVersion  = (const char *)version;
+	m_GLSLVersion = (const char *)glslVersion;
+
 	GLint major, minor;  
 	glGetIntegerv(GL_MAJOR_VERSION, &major);  
 	glGetIntegerv(GL_MINOR_VERSION, &minor);  

@@ -3,6 +3,7 @@
 
 #include "ogl/App.h"
 #include "TessTriangle.h"
+#include "Font.h"
 
 namespace byhj
 {
@@ -20,8 +21,11 @@ namespace byhj
 		void v_Shutdown() override;
 
 	private:
-		TessTriangle m_TessTriangle;
+		void countFps();
 
+		int m_Fps = 0;
+		TessTriangle m_TessTriangle;
+		Font m_Font;
 	};
 
 }

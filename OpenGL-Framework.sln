@@ -43,6 +43,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Smoke", "src\Smoke\Smoke.vc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Font", "src\Font\Font.vcxproj", "{ADCF0C81-FCDD-4CA3-BF33-1CFAECE24980}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Audio", "src\Audio\Audio.vcxproj", "{AEB4BC4E-F952-4424-ACAD-8DE7F3A57F97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -211,6 +213,14 @@ Global
 		{ADCF0C81-FCDD-4CA3-BF33-1CFAECE24980}.Release|x64.Build.0 = Release|x64
 		{ADCF0C81-FCDD-4CA3-BF33-1CFAECE24980}.Release|x86.ActiveCfg = Release|Win32
 		{ADCF0C81-FCDD-4CA3-BF33-1CFAECE24980}.Release|x86.Build.0 = Release|Win32
+		{AEB4BC4E-F952-4424-ACAD-8DE7F3A57F97}.Debug|x64.ActiveCfg = Debug|x64
+		{AEB4BC4E-F952-4424-ACAD-8DE7F3A57F97}.Debug|x64.Build.0 = Debug|x64
+		{AEB4BC4E-F952-4424-ACAD-8DE7F3A57F97}.Debug|x86.ActiveCfg = Debug|Win32
+		{AEB4BC4E-F952-4424-ACAD-8DE7F3A57F97}.Debug|x86.Build.0 = Debug|Win32
+		{AEB4BC4E-F952-4424-ACAD-8DE7F3A57F97}.Release|x64.ActiveCfg = Release|x64
+		{AEB4BC4E-F952-4424-ACAD-8DE7F3A57F97}.Release|x64.Build.0 = Release|x64
+		{AEB4BC4E-F952-4424-ACAD-8DE7F3A57F97}.Release|x86.ActiveCfg = Release|Win32
+		{AEB4BC4E-F952-4424-ACAD-8DE7F3A57F97}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

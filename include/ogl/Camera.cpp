@@ -3,6 +3,10 @@
 namespace byhj
 {
 
+	namespace ogl
+	{
+
+
 	// Processes input received from any keyboard-like input system. 
 	//Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
 	void Camera::ProcessKeyboard(Camera_Movement direction, GLfloat deltaTime)
@@ -85,6 +89,11 @@ namespace byhj
 			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 			ctr = false;
 		}
+		if (keys[GLFW_KEY_X])
+		{
+			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+			ctr = true;
+		}
 	}
 
 	// Is called whenever a key is pressed/released via GLFW
@@ -150,5 +159,6 @@ namespace byhj
 	glm::vec3 Camera::GetFront() const 
 	{
 		return Front;
+	}
 	}
 }

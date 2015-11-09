@@ -27,7 +27,7 @@ std::shared_ptr<App> App::app;
 
 #ifdef USE_ANT
 	TwEventKeyGLFW(key, action);
-#else
+
 	app->v_KeyCallback(window, key, scancode, action, mode);
 #endif
 }
@@ -38,7 +38,7 @@ void App::glfw_mouse(GLFWwindow* window, double xpos, double ypos)
 {
 #ifdef USE_ANT
 	TwEventMousePosGLFW(xpos, ypos);
-#else
+
 	app->v_MouseCallback(window, xpos, ypos);
 #endif
 }
@@ -47,9 +47,9 @@ void App::glfw_mouse(GLFWwindow* window, double xpos, double ypos)
 
  void App::glfw_scroll(GLFWwindow* window, double xoffset, double yoffset)
 {
-#ifndef USE_ANT
+#ifdef USE_ANT
 	TwEventMouseWheelGLFW(xoffset);
-#else
+
 	app->v_ScrollCallback(window, xoffset, yoffset);
 #endif
 }
@@ -97,9 +97,9 @@ void App::Run(std::shared_ptr<App> the_app)
 	glfwSetMouseButtonCallback(window, glfw_mouseButton); // - Directly redirect GLFW mouse button events to AntTweakBar
 	glfwSetCharCallback(window, glfw_char);                      // - Directly redirect GLFW char events to AntTweakBar
 #endif
-	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+	//glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 	// GLFW Options
-	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	if (window == NULL)
 	{

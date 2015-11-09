@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CAF812D1-8509-4C20-8D73-0B60AEA0B114}</ProjectGuid>
-    <RootNamespace>SkyBox</RootNamespace>
+    <ProjectGuid>{AEB4BC4E-F952-4424-ACAD-8DE7F3A57F97}</ProjectGuid>
+    <RootNamespace>Audio</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -120,32 +120,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\ogl\App.h" />
-    <ClInclude Include="..\..\include\ogl\Camera.h" />
-    <ClInclude Include="..\..\include\ogl\Debug.h" />
     <ClInclude Include="..\..\include\ogl\Gui.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
-    <ClInclude Include="..\..\include\ogl\TextureMgr.h" />
+    <ClInclude Include="Audio.h" />
+    <ClInclude Include="conio.h" />
     <ClInclude Include="RenderSystem.h" />
-    <ClInclude Include="skybox.h" />
-    <ClInclude Include="TessGUI.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cube.frag" />
-    <None Include="cube.vert" />
-    <None Include="skybox.frag" />
-    <None Include="skybox.vert" />
+    <ClInclude Include="triangle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\include\ogl\App.cpp" />
-    <ClCompile Include="..\..\include\ogl\Camera.cpp" />
-    <ClCompile Include="..\..\include\ogl\Debug.cpp" />
     <ClCompile Include="..\..\include\ogl\Gui.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
-    <ClCompile Include="..\..\include\ogl\TextureMgr.cpp" />
+    <ClCompile Include="Audio.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
-    <ClCompile Include="skybox.cpp" />
-    <ClCompile Include="TessGUI.cpp" />
+    <ClCompile Include="triangle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="triangle.frag" />
+    <None Include="triangle.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

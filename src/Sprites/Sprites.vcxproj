@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5FB76445-B28B-45FB-84E4-3BAFDF450AB9}</ProjectGuid>
-    <RootNamespace>Ocene</RootNamespace>
+    <ProjectGuid>{9B619232-753E-4432-BB97-1D04F9C64EDA}</ProjectGuid>
+    <RootNamespace>Sprites</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

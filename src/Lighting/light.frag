@@ -16,7 +16,7 @@ uniform sampler2D u_WoodTex;
 uniform vec3 u_LightPos[LIGHTNUMS];
 uniform vec3 u_LightColor[LIGHTNUMS];
 uniform vec3 u_ViewPos;
-uniform bool  u_Gamma;
+uniform bool  u_Gamma = false;
 
 subroutine vec3 LightModelSub(vec3 normal, vec3 fragPos, vec3 lightPos, vec3 lightColor);
 
@@ -70,7 +70,7 @@ subroutine (LightModelSub) vec3 BlinnPhong(vec3 normal, vec3 fragPos, vec3 light
 
   vec3 light = diffuse + specular;
 
-  return light; 
+  return vec3(1.0f); 
 }
 
 subroutine uniform LightModelSub lightModelUniform;
@@ -88,5 +88,5 @@ void main()
    if(u_Gamma)
         pixelColor = pow(pixelColor, vec4(1.0/2.2) );
 
-  g_FragColor = texColor;
+  g_FragColor = pixelColor;
 }

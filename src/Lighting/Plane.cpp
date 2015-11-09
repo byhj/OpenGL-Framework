@@ -21,7 +21,7 @@ glm::vec3 lightColors[] =
 const static GLfloat PlaneVertex[] =
 {
 	// Positions          // Normals         // Texture Coords
-	8.0f, -0.5f,  8.0f,  0.0f, 1.0f, 0.0f, 5.0f, 0.0f,
+	8.0f, -0.5f,  8.0f,  0.0f, 1.0f, 0.0f,  5.0f, 0.0f,
    -8.0f, -0.5f,  8.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f,
    -8.0f, -0.5f, -8.0f,  0.0f, 1.0f, 0.0f,  0.0f, 5.0f,
 
@@ -29,7 +29,7 @@ const static GLfloat PlaneVertex[] =
    -8.0f, -0.5f, -8.0f,  0.0f, 1.0f, 0.0f,  0.0f, 5.0f,
 	8.0f, -0.5f, -8.0f,  0.0f, 1.0f, 0.0f,  5.0f, 5.0f
 };
-const static GLsizei PlaneVertexSize = sizeof(PlaneVertex) / sizeof(GLfloat);
+const static GLsizei PlaneVertexSize = sizeof(PlaneVertex);
 
 #pragma  endregion
 
@@ -58,10 +58,10 @@ namespace byhj
 		glUniform1i(uniform_loc.woodTex, 0);
 
 		glm::mat4 model = glm::mat4(1.0f);
-		glm::mat4 view  = glm::lookAt(glm::vec3(0.0f, 10.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glm::mat4 view = glm::lookAt(glm::vec3(0.0f, 0.5f, 4.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glm::mat4 proj  = glm::perspective(45.0f, aspect, 0.1f, 1000.0f);
 
-		glm::vec3 camPos = glm::vec3(0.0f, 0.0f, 3.0f);
+		glm::vec3 camPos = glm::vec3(0.0f, 0.5f, 4.0f);
 
 		glUniformMatrix4fv(uniform_loc.model, 1, GL_FALSE, &model[0][0]);
 		glUniformMatrix4fv(uniform_loc.view, 1, GL_FALSE, &view[0][0]);
@@ -71,14 +71,17 @@ namespace byhj
 		glUniform3fv(uniform_loc.lightColor, 4, &lightColors[0][0]);
 		glUniform3fv(uniform_loc.viewPos, 1, &camPos[0]);
 
-		glUniformSubroutinesuiv(GL_FRAGMENT_SHADER, 1, &uniform_loc.lightSub[0]);
+		auto gamma = m_LightGUI.GetGamma();
+		glUniform1i(uniform_loc.gamma, gamma);
+
+		glUniformSubroutinesuiv(GL_FRAGMENT_SHADER, 1, &uniform_loc.lightSub[1]);
 
 		glUseProgram(0);
 	}
 
 	void Plane::Render()
 	{
-		m_LightGUI.v_Render();
+
 
 		glUseProgram(program);
 		glBindVertexArray(vao);
@@ -87,6 +90,8 @@ namespace byhj
 
 		glBindVertexArray(0);
 		glUseProgram(0);
+
+		m_LightGUI.v_Render();
 	}
 
 	void Plane::Shutdown()
@@ -111,6 +116,7 @@ namespace byhj
 	void Plane::init_vertexArray()
 	{
 		glGenVertexArrays(1, &vao);
+		glBindVertexArray(vao);
 
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
@@ -136,6 +142,8 @@ namespace byhj
 		m_PlaneShader.link();
 		m_PlaneShader.info();
 
+
+		uniform_loc.lightSub[0]  = -1;		uniform_loc.lightSub[1]  = -1;
 		program = m_PlaneShader.GetProgram();
 		uniform_loc.woodTex = glGetUniformLocation(program, "u_WoodTex");
 		uniform_loc.lightSub[0] = glGetSubroutineIndex(program, GL_FRAGMENT_SHADER, "Phong");

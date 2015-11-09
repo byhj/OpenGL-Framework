@@ -17,9 +17,20 @@ namespace byhj
 		void v_Render() override;
 		void v_Shutdown();
 
+		bool GetGamma()
+		{
+			return m_Gamma;
+		}
 	private:
 		
-		glm::vec3 m_LightColors[4];
+		glm::vec3 m_LightColors[4] =
+		{
+			glm::vec3(0.25),
+			glm::vec3(0.50),
+			glm::vec3(0.75),
+			glm::vec3(1.00)
+		};
+
 		GLboolean m_Gamma;
 
 	};

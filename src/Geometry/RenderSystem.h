@@ -2,7 +2,7 @@
 #define RENDERSYSTEM_H
 
 #include "ogl/App.h"
-#include "Polygon.h"
+#include "Geometry.h"
 
 namespace byhj
 {
@@ -21,7 +21,7 @@ public:
 	void v_Shutdown();
 
 private:
-	byhj::Polygon m_Polygon;
+	Geometry m_Geometry;
 };
 
 }

@@ -20,9 +20,11 @@ namespace ogl
 	   glm::mat4 proj;
 	};
 
+	/*
+
 	struct Vertex
 	{
-		glm::vec3 pos; //顶点，纹理，法线坐标
+		glm::vec3 pos; //顶点, 纹理. 法线坐标
 		glm::vec2 tex;
 		glm::vec3 normal;
 
@@ -39,6 +41,7 @@ namespace ogl
 			normal = n;
 		}
 	};
+	*/
 
 	const GLuint VALUE = 0xffffffff;
 }

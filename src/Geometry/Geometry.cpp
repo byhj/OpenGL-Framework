@@ -44,14 +44,17 @@ void Geometry::init_buffer()
 {
 	m_Polygon.CreateCube(1.0f, 1.0f, 1.0f, m_MeshData);
 
+	auto VertexDataSize = sizeof(byhj::Vertex) * m_MeshData.VertexData.size();
+
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(m_MeshData.VertexData), &m_MeshData.VertexData[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, VertexDataSize, &m_MeshData.VertexData[0], GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+	auto IndexDataSize = sizeof(GLuint) * m_MeshData.IndexData.size();
 	glGenBuffers(1, &ibo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(m_MeshData.IndexData), &m_MeshData.IndexData[0], GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, IndexDataSize, &m_MeshData.IndexData[0], GL_STATIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 }

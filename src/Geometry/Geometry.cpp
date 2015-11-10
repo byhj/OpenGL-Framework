@@ -27,6 +27,8 @@ void Geometry::Render()
 
 	glBindVertexArray(vao);
 
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
 	glDrawElements(GL_TRIANGLES, m_MeshData.IndexData.size(), GL_UNSIGNED_INT, 0);
 
 	glBindVertexArray(0);

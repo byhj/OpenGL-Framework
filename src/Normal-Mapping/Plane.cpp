@@ -18,6 +18,7 @@ void Plane::Init()
 	init_buffer();
 	init_vertexArray();
 	init_shader();
+	init_texture();
 }
 
 void Plane::Render()
@@ -26,6 +27,22 @@ void Plane::Render()
 	glUseProgram(program);
 
 	glBindVertexArray(vao);
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, colorTex);
+	glUniform1i(uniform_loc.colorTex, 0);
+
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, normalTex);
+	glUniform1i(uniform_loc.normalTex, 1);
+
+	//float currentTime = static_cast<float>(glfwGetTime());
+	glm::mat4 view = glm::lookAt(glm::vec3(0.0f, 0.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	glm::mat4 proj = glm::perspective(45.0f, 1.0f, 0.1f, 1000.0f);
+	glm::mat4 model = glm::mat4(1.0f);// glm::rotate(glm::mat4(1.0f), currentTime, glm::vec3(0.0f, 0.0f, 1.0f));
+	glUniformMatrix4fv(uniform_loc.model, 1, GL_FALSE, &model[0][0]);
+	glUniformMatrix4fv(uniform_loc.view,  1, GL_FALSE, &view[0][0]);
+	glUniformMatrix4fv(uniform_loc.proj,  1, GL_FALSE, &proj[0][0]);
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
@@ -67,10 +84,12 @@ void Plane::init_vertexArray()
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(ogl::Vertex), 0);
-	//glEnableVertexAttribArray(1);						  
-	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(ogl::Vertex), (GLvoid*)(sizeof(glm::vec3)));
-	//glEnableVertexAttribArray(2);						 
-	//glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(ogl::Vertex), (GLvoid*)(2 * sizeof(glm::vec3)));
+	glEnableVertexAttribArray(1);						  
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(ogl::Vertex), (GLvoid*)(sizeof(glm::vec3)));
+	glEnableVertexAttribArray(2);						 
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(ogl::Vertex), (GLvoid*)(2 * sizeof(glm::vec3)));
+	glEnableVertexAttribArray(3);
+	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(ogl::Vertex), (GLvoid*)(2 * sizeof(glm::vec3) + sizeof(glm::vec2)));
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 
@@ -88,6 +107,17 @@ void Plane::init_shader()
 	PlaneShader.link();
 	PlaneShader.info();
 	program = PlaneShader.GetProgram();
+
+	uniform_loc.model = glGetUniformLocation(program, "model");
+	uniform_loc.view = glGetUniformLocation(program, "view");
+	uniform_loc.proj = glGetUniformLocation(program, "proj");
+	uniform_loc.colorTex = glGetUniformLocation(program, "colorTex");
+	uniform_loc.normalTex = glGetUniformLocation(program, "normalTex");
 }
 
+void Plane::init_texture()
+{
+	colorTex = m_TextureMgr.LoadTexture("rock_color.tga");
+	normalTex = m_TextureMgr.LoadTexture("rock_normal.tga");
+}
 }

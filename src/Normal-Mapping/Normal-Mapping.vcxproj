@@ -123,6 +123,9 @@
     <ClInclude Include="..\..\include\ogl\Gui.h" />
     <ClInclude Include="..\..\include\ogl\Polygon.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
+    <ClInclude Include="..\..\include\ogl\Texture.h" />
+    <ClInclude Include="..\..\include\ogl\TextureManager.h" />
+    <ClInclude Include="..\..\include\ogl\TextureMgr.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="RenderSystem.h" />
   </ItemGroup>
@@ -135,6 +138,9 @@
     <ClCompile Include="..\..\include\ogl\Gui.cpp" />
     <ClCompile Include="..\..\include\ogl\Polygon.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
+    <ClCompile Include="..\..\include\ogl\Texture.cpp" />
+    <ClCompile Include="..\..\include\ogl\TextureManager.cpp" />
+    <ClCompile Include="..\..\include\ogl\TextureMgr.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderSystem.cpp" />

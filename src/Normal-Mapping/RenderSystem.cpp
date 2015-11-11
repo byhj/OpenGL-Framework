@@ -21,7 +21,7 @@ void RenderSystem::v_InitInfo()
 
 void RenderSystem::v_Init()
 {
-	m_Plane.Init();
+	m_Plane.Init(windowInfo.Width, windowInfo.Height);
 }
 
 void RenderSystem::v_Update()

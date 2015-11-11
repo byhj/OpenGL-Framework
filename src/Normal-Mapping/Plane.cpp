@@ -13,12 +13,14 @@ Plane::~Plane()
 
 }
 
-void Plane::Init()
+void Plane::Init(int sw, int sh)
 {
 	init_buffer();
 	init_vertexArray();
 	init_shader();
 	init_texture();
+
+	m_Aspect = static_cast<GLfloat>(sw) / sh;
 }
 
 void Plane::Render()
@@ -38,7 +40,7 @@ void Plane::Render()
 
 	//float currentTime = static_cast<float>(glfwGetTime());
 	glm::mat4 view = glm::lookAt(glm::vec3(0.0f, 0.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	glm::mat4 proj = glm::perspective(45.0f, 1.0f, 0.1f, 1000.0f);
+	glm::mat4 proj = glm::perspective(45.0f, m_Aspect, 0.1f, 1000.0f);
 	glm::mat4 model = glm::mat4(1.0f);// glm::rotate(glm::mat4(1.0f), currentTime, glm::vec3(0.0f, 0.0f, 1.0f));
 	glUniformMatrix4fv(uniform_loc.model, 1, GL_FALSE, &model[0][0]);
 	glUniformMatrix4fv(uniform_loc.view,  1, GL_FALSE, &view[0][0]);
@@ -59,7 +61,7 @@ void Plane::Shutdown()
 
 void Plane::init_buffer()
 {
-	m_Polygon.CreatePlane(1.0f, 1.0f, m_PlaneMeshData);
+	m_Polygon.CreatePlane(2.0f, 2.0f, m_PlaneMeshData);
 
 	auto VertexSize = sizeof(ogl::Vertex) * m_PlaneMeshData.VertexData.size();
 
@@ -117,7 +119,7 @@ void Plane::init_shader()
 
 void Plane::init_texture()
 {
-	colorTex = m_TextureMgr.LoadTexture("rock_color.tga");
-	normalTex = m_TextureMgr.LoadTexture("rock_normal.tga");
+	colorTex =  loadTexture("../../media/textures/rock_color.tga");
+	normalTex = loadTexture("../../media/textures/rock_normal.tga");
 }
 }

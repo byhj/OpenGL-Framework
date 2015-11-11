@@ -5,7 +5,7 @@
 #include "ogl/Shader.h"
 #include "ogl/Utility.h"
 #include "ogl/Polygon.h"
-#include  "ogl/TextureMgr.h"
+#include  "ogl/texture.h"
 
 namespace byhj
 {
@@ -16,7 +16,7 @@ public:
 	Plane();
 	~Plane();
 
-	void Init();
+	void Init(int sw, int sh);
 	void Render();
 	void Shutdown();
 
@@ -37,11 +37,10 @@ private:
 
 	ogl::MeshData m_PlaneMeshData;
 	ogl::Polygon m_Polygon;
-	ogl::TextureMgr m_TextureMgr;
 	ogl::Shader PlaneShader{ "Plane Shader" };
 
 	GLuint colorTex, normalTex;
-
+	GLfloat m_Aspect = 1.0f;
 	GLuint program = 0;
 	GLuint vbo, ibo, vao;
 };

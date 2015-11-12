@@ -48,7 +48,7 @@ namespace byhj
 	   GLuint vao = 0;
 	   GLuint vbo = 0;
 	   GLuint ibo = 0;
-	   GLuint woodTex;
+	   GLuint woodTexs[2];
 	   GLfloat aspect = 1.0f;
 
    };

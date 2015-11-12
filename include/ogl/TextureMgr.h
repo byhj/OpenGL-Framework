@@ -22,6 +22,8 @@ namespace byhj
 			GLuint LoadTexture(const std::string &fileName);
 			GLuint LoadTexture(const std::string &fileName, GLboolean alpha);
 			GLuint LoadTexture(const std::vector<std::string> &faces);
+			GLuint LoadTextureGamma(GLchar* path, bool gammaCorrection);
+
 			void UnLoadTexture(const std::string &fileName);
 			GLuint GetTexID(const std::string &name) 
 			{

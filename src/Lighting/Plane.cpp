@@ -12,10 +12,10 @@ glm::vec3 lightPositions[] =
 
 glm::vec3 lightColors[] =
 {
-	glm::vec3(0.25),
-	glm::vec3(0.50),
-	glm::vec3(0.75),
-	glm::vec3(1.00)
+	glm::vec3(0.5f, 0.0f, 0.0f),
+	glm::vec3(0.0f, 0.5f, 0.0f),
+	glm::vec3(0.0f, 0.0f, 0.5f),
+	glm::vec3(0.5f, 0.5f, 0.0f)
 };
 
 const static GLfloat PlaneVertex[] =
@@ -52,9 +52,12 @@ namespace byhj
 	{
 		glUseProgram(program);
 
+		auto gamma = m_LightGUI.GetGamma();
+		glUniform1i(uniform_loc.gamma, gamma);
+
 		//map the texture to the shader;
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, woodTex);
+		glBindTexture(GL_TEXTURE_2D, woodTexs[gamma]);
 		glUniform1i(uniform_loc.woodTex, 0);
 
 		glm::mat4 model = glm::mat4(1.0f);
@@ -67,14 +70,13 @@ namespace byhj
 		glUniformMatrix4fv(uniform_loc.view, 1, GL_FALSE, &view[0][0]);
 		glUniformMatrix4fv(uniform_loc.proj, 1, GL_FALSE, &proj[0][0]);
 
+		lightColors[0] = m_LightGUI.GetLight1();
+		lightColors[1] = m_LightGUI.GetLight2();
+		lightColors[2] = m_LightGUI.GetLight3();
+		lightColors[3] = m_LightGUI.GetLight4();
 		glUniform3fv(uniform_loc.lightPos, 4, &lightPositions[0][0]);
 		glUniform3fv(uniform_loc.lightColor, 4, &lightColors[0][0]);
 		glUniform3fv(uniform_loc.viewPos, 1, &camPos[0]);
-
-		auto gamma = m_LightGUI.GetGamma();
-		glUniform1i(uniform_loc.gamma, gamma);
-
-		glUniformSubroutinesuiv(GL_FRAGMENT_SHADER, 1, &uniform_loc.lightSub[1]);
 
 		glUseProgram(0);
 	}
@@ -85,6 +87,10 @@ namespace byhj
 
 		glUseProgram(program);
 		glBindVertexArray(vao);
+
+		auto lightIndex = m_LightGUI.GetLightModel();
+
+		glUniformSubroutinesuiv(GL_FRAGMENT_SHADER, 1, &uniform_loc.lightSub[lightIndex]);
 
 		glDrawArrays(GL_TRIANGLES, 0, 6);	
 
@@ -162,7 +168,8 @@ namespace byhj
 	void Plane::init_texture()
 	{
 		m_TextureMgr.LoadTexture("wood.png");
-		woodTex = m_TextureMgr.GetTexID("wood.png");
+		woodTexs[0] = m_TextureMgr.GetTexID("wood.png");
+		woodTexs[1] = m_TextureMgr.LoadTextureGamma("wood.png", true);
 	}
 
 

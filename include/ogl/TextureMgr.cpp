@@ -103,7 +103,29 @@ namespace byhj
 
 			return tex;
 		}
+		GLuint TextureMgr::LoadTextureGamma(GLchar* fileName, bool gammaCorrection)
+		{
+			// Generate texture ID and load texture data 
+			GLuint textureID;
+			glGenTextures(1, &textureID);
+			int width, height;
 
+			std::string textureFile = folder + fileName;
+			unsigned char* image = SOIL_load_image(textureFile.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
+			// Assign texture to ID
+			glBindTexture(GL_TEXTURE_2D, textureID);
+			glTexImage2D(GL_TEXTURE_2D, 0, gammaCorrection ? GL_SRGB : GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+			glGenerateMipmap(GL_TEXTURE_2D);
+
+			// Parameters
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+			glBindTexture(GL_TEXTURE_2D, 0);
+			SOIL_free_image_data(image);
+			return textureID;
+		}
 		void TextureMgr::UnLoadTexture(const std::string &fileName)
 		{
 			auto iter = m_TexID.find(fileName);

@@ -23,19 +23,18 @@
 
 namespace byhj
 {
-namespace ogl
-{
 
 GLint TextureFromFile(const char* path, std::string directory);
 
 class Model
 {
 public:
-	Model(){}
+	Model()	= default;
+   ~Model() = default;
 
 	// Draws the model, and thus all its meshes
 	void Draw(GLuint program);
-	void loadModel(std::string path);
+	void LoadModel(std::string path);
 
 	// Processes a node in a recursive fashion. Processes each individual mesh located at the node and repeats this process on its children nodes (if any).
 	void processNode(aiNode* node, const aiScene* scene);
@@ -45,12 +44,11 @@ public:
 public:
 
 	/*  Model Data  */
-	std::vector<Mesh> meshes;
-	std::string directory;
-	std::vector<Texture> textures_loaded;	// Stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once.
+	std::vector<Mesh> m_Meshes;
+	std::string m_Directory = "../../media/objects/";
+	std::vector<Texture> m_Textures;	// Stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once.
 };
 
-}
 }
 
 #endif

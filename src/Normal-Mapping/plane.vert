@@ -25,8 +25,8 @@ void main(void)
    vs_out.Pos = mat3(model) * g_Position;
     
    mat3 normal_mat = transpose(inverse(mat3(view * model)));
-   vs_out.Normal   = normal_mat * g_Normal;
-   vs_out.Tangent  = normal_mat * g_Tangent;
+   vs_out.Normal    = normal_mat * g_Normal;
+   vs_out.Tangent   = normal_mat * g_Tangent;
    vs_out.Bitangent = normal_mat * cross(g_Tangent, g_Normal);
    vs_out.TexCoord = g_TexCoord;
 

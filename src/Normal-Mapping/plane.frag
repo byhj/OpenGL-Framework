@@ -11,8 +11,8 @@ in VS_OUT
   vec3 Pos;
 }vs_out;
 
-uniform vec3 viewPos = vec3(0.0f, 0.0f, 10.0f);
-uniform vec3 lightPos = vec3(1.0f, 0.0f, 1.0f);
+uniform vec3 viewPos = vec3(0.0f, 0.0f, 2.0f);
+uniform vec3 lightPos = vec3(0.0f, 0.0f, 1.0f);
 
 uniform sampler2D colorTex;
 uniform sampler2D normalTex;

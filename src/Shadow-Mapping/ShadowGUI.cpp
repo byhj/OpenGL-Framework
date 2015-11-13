@@ -4,7 +4,7 @@ namespace byhj
 {
 	void ShadowGUI::v_Init(int sw, int sh)
 	{
-		auto pBar
+
 	}
 
 	void ShadowGUI::v_Render()

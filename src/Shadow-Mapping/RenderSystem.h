@@ -2,6 +2,8 @@
 #define RENDERSYSTEM_H
 
 #include "ogl/App.h"
+#include "Shadow.h"
+#include "DebugWindow.h"
 
 namespace byhj
 {
@@ -20,6 +22,8 @@ public:
 	void v_Shutdown();
 
 private:
+	Shadow m_Shadow;
+	DebugWindow m_DebugWindow;
 };
 
 }

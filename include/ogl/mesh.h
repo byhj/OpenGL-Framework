@@ -1,15 +1,13 @@
 #ifndef MESH_H
 #define MESH_H
 
-// Std. Includes
 #include <string>
 #include <fstream>
 #include <sstream>
 #include <iostream>
 #include <vector>
 
-// GL Includes
-#include <GL/glew.h> // Contains all the necessery OpenGL includes
+#include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -20,8 +18,9 @@
 namespace byhj
 {
 
-namespace ogl
-{
+	namespace ogl
+	{
+
 
 struct Vertex {
 	// Position
@@ -39,19 +38,14 @@ struct Texture {
 };
 
 class Mesh {
-public:
-	/*  Mesh Data  */
-	std::vector<Vertex> vertices;
-	std::vector<GLuint> indices;
-	std::vector<Texture> textures;
 
-	/*  Functions  */
-	// Constructor
+public:
+
 	Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices, std::vector<Texture> textures)
 	{
-		this->vertices = vertices;
-		this->indices = indices;
-		this->textures = textures;
+		m_VertexData = vertices;
+		m_IndexData  = indices;
+		m_Textures   = textures;
 
 		// Now that we have all the required data, set the vertex buffers and its attribute pointers.
 		this->setupMesh();
@@ -60,8 +54,12 @@ public:
 	// Render the mesh
 	void Draw(GLuint program);
 
-public:
-	GLuint VAO, VBO, EBO;
+private:
+
+	GLuint m_VAO, m_VBO, m_IBO;
+	std::vector<Vertex>  m_VertexData;
+	std::vector<GLuint>  m_IndexData;
+	std::vector<Texture> m_Textures;
 
 	// Initializes all the buffer objects/arrays
 	void setupMesh();

@@ -13,5 +13,5 @@ void main(void)
 {
    vec4 texColor = texture2D(shadowTex, vs_out.TexCoord);
 
-   g_FragColor = texColor;
+   g_FragColor = vec4(1.0f, 0.0f, 0.0f, 0.0f);
 }

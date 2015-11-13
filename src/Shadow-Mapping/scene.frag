@@ -10,7 +10,6 @@ in VS_OUT
   vec4 LightSpacePos;
 }vs_out;
 
-uniform sampler2D u_ColorTex;
 uniform sampler2D u_ShadowMap;
 
 uniform vec3 u_LightPos;
@@ -21,7 +20,7 @@ float CalcShadow(vec4 lightSpacePos);
 
 void main(void)
 {
-   vec3 texColor = texture2D(u_ColorTex, vs_out.TexCoord);
+   vec3 texColor = vec3(1.0f);//texture2D(u_ColorTex, vs_out.TexCoord);
    vec3 normal   = normalize(vs_out.Normal);
    vec3 lightColor = vec3(0.3f);
    
@@ -34,12 +33,12 @@ void main(void)
    vec3 diffuse  = diff * lightColor;
    
    //specular
-    vec3 viewDir = normalize(g_ViewPos - vs_out.FragPos);
+    vec3 viewDir = normalize(u_ViewPos - vs_out.FragPos);
 	vec3 halfDir = normalize(lightDir + viewDir);
 	float spec   = pow(max(dot(halfDir, vs_out.Normal), 0.0f), 32.0f);
 	vec3 specular = spec * lightColor;
 
-	float shadowVal = u_EnableShadow ? CalcShadow(g_LightSpcaePos) : 0.0f;
+	float shadowVal = u_EnableShadow ? CalcShadow(vs_out.LightSpacePos) : 0.0f;
 
 	vec3 lighting = (ambient + (1.0f - shadowVal) * (diffuse + specular) ) * texColor;
 
@@ -66,10 +65,10 @@ float CalcShadow(vec4 lightSpacePos)
 	vec2 texelSize = 1.0f / textureSize(u_ShadowMap, 0);
 	for (int x = -1; x <= 1; ++x)
 	{
-	   for (int y = -1; y <= 1; ++y
+	   for (int y = -1; y <= 1; ++y)
 	   {
 	      float pcfDepth = texture2D(u_ShadowMap, projCoord.xy + vec2(x, y) * texelSize).r;
-		  shadowVal += currDepth - bias > pcpDepth ? 1.0f : 0.0f;
+		  shadowVal += (currDepth - bias > pcfDepth ? 1.0f : 0.0f);
 	   }
 	}
 

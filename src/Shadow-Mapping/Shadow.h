@@ -2,6 +2,8 @@
 #define Shadow_H
 
 #include "ogl/Shader.h"
+#include "ogl/Model.h"
+#include <glfw/glfw3.h>
 
 namespace byhj
 {
@@ -11,7 +13,7 @@ namespace byhj
 		Shadow()  = default;
 		~Shadow() = default;
 
-		void Init();
+		void Init(int sw, int sh);
 		void Update();
 		void Render();
 		void Shutdown();
@@ -25,9 +27,21 @@ namespace byhj
 	private:
 		void init_shader();
 		void render_scene(GLuint program);
+
+		struct UniformLoc
+		{
+			GLuint model;
+			GLuint view;
+			GLuint proj;
+		}uniform_loc;
+
 		GLuint scene_prog, shadow_prog;
 		GLuint fbo, depth_tex;
 		GLboolean shadowFlag;
+		GLfloat m_Aspect = 1.0f;
+
+		ogl::Model m_Model;
+		ogl::Model m_Plane;
 		ogl::Shader SceneShader, ShadowShader;
 		
 	};

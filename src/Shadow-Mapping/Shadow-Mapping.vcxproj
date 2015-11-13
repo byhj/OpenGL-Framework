@@ -121,6 +121,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\ogl\App.h" />
     <ClInclude Include="..\..\include\ogl\Gui.h" />
+    <ClInclude Include="..\..\include\ogl\Mesh.h" />
+    <ClInclude Include="..\..\include\ogl\Model.h" />
     <ClInclude Include="..\..\include\ogl\Polygon.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
     <ClInclude Include="..\..\include\ogl\Texture.h" />
@@ -134,6 +136,8 @@
   <ItemGroup>
     <ClCompile Include="..\..\include\ogl\App.cpp" />
     <ClCompile Include="..\..\include\ogl\Gui.cpp" />
+    <ClCompile Include="..\..\include\ogl\Mesh.cpp" />
+    <ClCompile Include="..\..\include\ogl\Model.cpp" />
     <ClCompile Include="..\..\include\ogl\Polygon.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
     <ClCompile Include="..\..\include\ogl\Texture.cpp" />

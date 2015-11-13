@@ -16,8 +16,19 @@ namespace byhj
 		void Render();
 		void Shutdown();
 
+		void init_fbo(int sw, int sh);
+		GLuint GetDepthMap() const
+		{
+			return depth_tex;
+		}
+	
 	private:
-		ogl::Shader ShadowShader;
+		void init_shader();
+		void render_scene(GLuint program);
+		GLuint scene_prog, shadow_prog;
+		GLuint fbo, depth_tex;
+		GLboolean shadowFlag;
+		ogl::Shader SceneShader, ShadowShader;
 		
 	};
 }

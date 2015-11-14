@@ -13,21 +13,37 @@ Geometry::~Geometry()
 
 }
 
-void Geometry::Init()
+void Geometry::Init(int sw, int sh)
 {
+	m_Aspect = static_cast<GLfloat>(sw) / sh;
+
 	init_buffer();
 	init_vertexArray();
 	init_shader();
 }
 
+void Geometry::Update()
+{
+  glUseProgram(m_Program);
+
+  GLfloat time = glfwGetTime();
+  glm::mat4 model = glm::rotate(glm::mat4(1.0f), time , glm::vec3(0.0f, 1.0f, 0.0f) );
+  glm::mat4 view  = glm::lookAt(glm::vec3(0.0f, 0.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f) );
+  glm::mat4 proj = glm::perspective(45.0f, m_Aspect, 0.1f, 1000.0f);
+
+  glUniformMatrix4fv(uniform_loc.model, 1, GL_FALSE, &model[0][0]);
+  glUniformMatrix4fv(uniform_loc.view,  1, GL_FALSE, &view[0][0]);
+  glUniformMatrix4fv(uniform_loc.proj,  1, GL_FALSE, &proj[0][0]);
+   
+  glUseProgram(0);
+}
+
 void Geometry::Render()
 {
 	//Use this shader and vao data to render
-	glUseProgram(program);
+	glUseProgram(m_Program);
 
 	glBindVertexArray(vao);
-
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	glDrawElements(GL_TRIANGLES, m_MeshData.IndexData.size(), GL_UNSIGNED_INT, 0);
 
@@ -39,7 +55,7 @@ void Geometry::Render()
 
 void Geometry::Shutdown()
 {
-	glDeleteProgram(program);
+	glDeleteProgram(m_Program);
 }
 
 void Geometry::init_buffer()
@@ -89,7 +105,13 @@ void Geometry::init_shader()
 	GeometryShader.attach(GL_FRAGMENT_SHADER, "Geometry.frag");
 	GeometryShader.link();
 	GeometryShader.info();
-	program = GeometryShader.GetProgram();
+	m_Program = GeometryShader.GetProgram();
+
+	uniform_loc.model = glGetUniformLocation(m_Program, "u_Model");
+	uniform_loc.view  = glGetUniformLocation(m_Program, "u_View");
+	uniform_loc.proj  = glGetUniformLocation(m_Program, "u_Proj");
+
+
 }
 
 }

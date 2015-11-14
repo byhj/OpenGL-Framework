@@ -15,15 +15,15 @@ namespace byhj
 		init_shader();
 	}
 
-	void MeshLoad::Update()
+	void MeshLoad::Update(const glm::mat4 &viewMat)
 	{
 
 		glUseProgram(m_Program);
 
 	    GLfloat time = glfwGetTime();
 
-		glm::mat4 model = m_RotationGUI.GetRotationMat(); 
-		glm::mat4 view  = glm::lookAt(glm::vec3(0.0f, 0.2f, 5.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f) );
+		glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -3.0f)) * m_RotationGUI.GetRotationMat(); 
+		glm::mat4 view  = viewMat;
 		glm::mat4 proj  = glm::perspective(45.0f, m_Aspect, 0.1f, 1000.0f);
 
 		glUniformMatrix4fv(uniform_loc.model, 1, GL_FALSE, &model[0][0]);

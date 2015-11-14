@@ -6,7 +6,7 @@
 
 #include "cube.h"
 #include "skybox.h"
-#include "TessGUI.h"
+
 namespace byhj
 {
 
@@ -33,7 +33,6 @@ public:
 private:
 
 	byhj::Skybox m_Skybox;
-	byhj::TessGUI m_TessGUI;
 	ogl::Camera m_Camera;
 };
 

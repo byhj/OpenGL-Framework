@@ -42,9 +42,6 @@
     <ClInclude Include="..\..\include\ogl\TextureMgr.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="TessGUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="skybox.frag">
@@ -87,9 +84,6 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TessGUI.cpp">
-      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

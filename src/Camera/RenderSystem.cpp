@@ -26,7 +26,14 @@ void RenderSystem::v_Init()
 
 void RenderSystem::v_Update()
 {
-	m_MeshLoad.Update();
+	static GLfloat lastFrame = static_cast<float>(glfwGetTime());
+	GLfloat currentFrame = static_cast<float>(glfwGetTime());
+	GLfloat deltaTime = currentFrame - lastFrame;
+	lastFrame = currentFrame;
+
+	m_Camera.update(deltaTime);
+
+	m_MeshLoad.Update(m_Camera.GetViewMatrix());
 }
 
 void RenderSystem::v_Render()
@@ -44,6 +51,26 @@ void RenderSystem::v_Render()
 void RenderSystem::v_Shutdown()
 {
 	m_MeshLoad.Shutdown();
+}
+
+/////////////////////////////////Key and Mouse//////////////////////////////////
+void RenderSystem::v_Movement(GLFWwindow *Triangle)
+{
+	m_Camera.movement(Triangle);
+}
+void RenderSystem::v_KeyCallback(GLFWwindow* Triangle, int key, int scancode, int action, int mode)
+{
+	m_Camera.key_callback(Triangle, key, scancode, action, mode);
+}
+
+void RenderSystem::v_MouseCallback(GLFWwindow* Triangle, double xpos, double ypos)
+{
+	m_Camera.mouse_callback(Triangle, xpos, ypos);
+}
+
+void RenderSystem::v_ScrollCallback(GLFWwindow* Triangle, double xoffset, double yoffset)
+{
+	m_Camera.scroll_callback(Triangle, xoffset, yoffset);
 }
 
 }

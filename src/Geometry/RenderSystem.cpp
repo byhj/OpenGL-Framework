@@ -21,12 +21,12 @@ void RenderSystem::v_InitInfo()
 
 void RenderSystem::v_Init()
 {
-	m_Geometry.Init();
+	m_Geometry.Init(windowInfo.Width, windowInfo.Height);
 }
 
 void RenderSystem::v_Update()
 {
-
+	m_Geometry.Update();
 }
 
 void RenderSystem::v_Render()

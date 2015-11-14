@@ -11,7 +11,6 @@ namespace byhj
 
 	void RenderSystem::v_Init()
 	{
-		m_TessGUI.v_Init(windowInfo.Width, windowInfo.Height);
 
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_LESS);
@@ -51,7 +50,7 @@ namespace byhj
 
 		glDepthMask(GL_TRUE);
 		//glDepthFunc(GL_LESS); // Set depth function back to default
-		m_TessGUI.v_Render();
+
 
 	}
 

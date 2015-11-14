@@ -127,7 +127,6 @@
     <ClInclude Include="..\..\include\ogl\TextureMgr.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="skybox.h" />
-    <ClInclude Include="TessGUI.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cube.frag" />
@@ -145,7 +144,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="skybox.cpp" />
-    <ClCompile Include="TessGUI.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

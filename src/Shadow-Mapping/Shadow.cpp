@@ -6,7 +6,7 @@ namespace byhj
 	{
 		m_Aspect = static_cast<GLfloat>(sw) / sh;
 
-		m_Model.LoadModel("armadillo1.obj");
+		m_Model.LoadModel("armadillo.obj");
 		m_Plane.LoadModel("plane.obj");
 
 		init_shader();

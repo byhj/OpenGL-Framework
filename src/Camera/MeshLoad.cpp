@@ -4,6 +4,7 @@ namespace byhj
 {
 	void MeshLoad::Init(int sw, int sh)
 	{
+		m_RotationGUI.v_Init(sw, sh);
 		glEnable(GL_CULL_FACE);
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_LESS);
@@ -21,7 +22,7 @@ namespace byhj
 
 	    GLfloat time = glfwGetTime();
 
-		glm::mat4 model = glm::rotate(glm::mat4(1.0f), time, glm::vec3(time, time, time) ); 
+		glm::mat4 model = m_RotationGUI.GetRotationMat(); 
 		glm::mat4 view  = glm::lookAt(glm::vec3(0.0f, 0.2f, 5.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f) );
 		glm::mat4 proj  = glm::perspective(45.0f, m_Aspect, 0.1f, 1000.0f);
 
@@ -39,10 +40,13 @@ namespace byhj
 		m_Model.Draw(m_Program);
 
 		glUseProgram(0);
+
+		m_RotationGUI.v_Render();
 	}
 
 	void MeshLoad::Shutdown()
 	{
+		m_RotationGUI.v_Shutdown();
 	}
 
 	void MeshLoad::init_buffer()

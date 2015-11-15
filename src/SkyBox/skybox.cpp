@@ -142,6 +142,7 @@ namespace byhj
 		faces.push_back("/skybox/bottom.jpg");
 		faces.push_back("/skybox/back.jpg");
 		faces.push_back("/skybox/front.jpg");
+
 		cubemap_texture = m_TextureMgr.LoadTexture(faces);
 	}
 

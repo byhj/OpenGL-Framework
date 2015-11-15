@@ -100,6 +100,72 @@ bool TextureManager::LoadTexture(const char* filename, const unsigned int texID,
 	return true;
 }
 
+GLuint TextureManager::LoadCubeMap(std::vector<std::string> faces)
+{
+	//image format
+	FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
+	//pointer to the image, once loaded
+	FIBITMAP *dib(0);
+	//pointer to the image data
+	BYTE* bits(0);
+	//image width and height
+	unsigned int width(0), height(0);
+	//OpenGL's image ID to map to
+	GLuint gl_texID;
+
+
+	std::string folder = "../../media/textures/";
+
+	glGenTextures(1, &gl_texID);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, gl_texID);
+
+	for (GLuint i = 0; i < faces.size(); ++i)
+	{
+		std::string textureFile = folder + faces[i];
+		//check the file signature and deduce its format
+		fif = FreeImage_GetFileType(textureFile.c_str(), 0);
+		//if still unknown, try to guess the file format from the file extension
+		if (fif == FIF_UNKNOWN)
+			fif = FreeImage_GetFIFFromFilename(textureFile.c_str());
+		//if still unkown, return failure
+		if (fif == FIF_UNKNOWN)
+			return false;
+
+		//check that the plugin has reading capabilities and load the file
+		if (FreeImage_FIFSupportsReading(fif))
+			dib = FreeImage_Load(fif, textureFile.c_str());
+		//if the image failed to load, return failure
+		if (!dib)
+			std::cout << "Failed to load texture:" << textureFile << std::endl;
+
+		//retrieve the image data
+		bits = FreeImage_GetBits(dib);
+		//get the image width and height
+		width = FreeImage_GetWidth(dib);
+		height = FreeImage_GetHeight(dib);
+		//if this somehow one of these failed (they shouldn't), return failure
+		if ((bits == 0) || (width == 0) || (height == 0))
+			return false;
+
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGBA, width, height,
+			         0, GL_RGB, GL_UNSIGNED_BYTE, bits);
+
+		//Free FreeImage's copy of the data
+		FreeImage_Unload(dib);
+	}
+
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+
+	return gl_texID;
+
+}
+
 bool TextureManager::UnloadTexture(const unsigned int texID)
 {
 	bool result(true);

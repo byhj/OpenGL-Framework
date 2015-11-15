@@ -3,10 +3,8 @@
 
 #include "ogl/Shader.h"
 #include "ogl/Utility.h"
-#include "ogl/TextureMgr.h"
-
 #include <glfw/glfw3.h>
-
+#include "ogl/TextureMgr.h"
 namespace byhj
 {
 
@@ -30,8 +28,8 @@ namespace byhj
 		GLuint vao, vbo, program;
 		GLuint cubemap_texture, tex_loc;
 		GLuint model_loc, view_loc, proj_loc;
-		ogl::Shader SkyboxShader;
 		ogl::TextureMgr m_TextureMgr;
+		ogl::Shader SkyboxShader;
 	};
 
 }

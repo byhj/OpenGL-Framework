@@ -12,8 +12,8 @@ namespace byhj
 	void RenderSystem::v_Init()
 	{
 
-		glEnable(GL_DEPTH_TEST);
-		glDepthFunc(GL_LESS);
+		//glEnable(GL_DEPTH_TEST);
+		//glDepthFunc(GL_LESS);
 	
 
 		m_Skybox.Init();

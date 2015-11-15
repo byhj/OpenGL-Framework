@@ -10,9 +10,13 @@
 #define TextureManager_H
 
 #include <windows.h>
-#include <gl/gl.h>
+#include <gl/glew.h>
 #include "FreeImage.h"
+#include <iostream>
 #include <map>
+#include <vector>
+#include <string>
+
 
 class TextureManager
 {
@@ -30,6 +34,8 @@ public:
 		GLint level = 0,					//mipmapping level
 		GLint border = 0);					//border size
 
+	GLuint LoadCubeMap(std::vector<std::string> faces);
+
 	//free the memory for a texture
 	bool UnloadTexture(const unsigned int texID);
 
@@ -39,7 +45,7 @@ public:
 	//free all texture memory
 	void UnloadAllTextures();
 
-protected:
+public:
 	TextureManager();
 	TextureManager(const TextureManager& tm);
 	TextureManager& operator=(const TextureManager& tm);

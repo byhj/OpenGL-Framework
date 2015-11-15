@@ -27,7 +27,7 @@ namespace byhj
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			m_TexID[fileName] = tex;
@@ -75,22 +75,20 @@ namespace byhj
 			int width, height;
 			unsigned char *image;
 
-			GLuint tex = -1;
-			glGenTextures(1, &tex);
-			glBindTexture(GL_TEXTURE_CUBE_MAP, tex);
-			for (GLuint i = 0; i < faces.size(); ++i) 
-			{
-				std::string textureFile = folder + faces[i];
-				image = SOIL_load_image(textureFile.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
 
-				if (!image)
-					std::cout << "Cannot load the cube map texture" << std::endl;
-
-				glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB,
-					         width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-
-				SOIL_free_image_data(image);
-			}
+			GLuint tex = SOIL_load_OGL_cubemap
+				(
+					(folder + faces[0]).c_str(),
+					(folder + faces[1]).c_str(),
+					(folder + faces[2]).c_str(),
+					(folder + faces[3]).c_str(),
+					(folder + faces[4]).c_str(),
+					(folder + faces[5]).c_str(),
+					SOIL_LOAD_RGBA,
+					SOIL_CREATE_NEW_ID,
+					SOIL_FLAG_MIPMAPS
+					);
+			
 
 			glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -103,6 +101,7 @@ namespace byhj
 
 			return tex;
 		}
+
 		GLuint TextureMgr::LoadTextureGamma(GLchar* fileName, bool gammaCorrection)
 		{
 			// Generate texture ID and load texture data 

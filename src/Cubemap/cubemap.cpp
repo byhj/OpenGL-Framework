@@ -1,5 +1,5 @@
 #include "cubemap.h"
-#include "ogl/TextureMgr.h"
+#include "ogl/TextureManager.h"
 
 
 #include <glm/glm.hpp>
@@ -134,15 +134,20 @@ namespace byhj
 	void Skybox::init_texture()
 	{
 		m_TextureMgr.Init();
+	
 		// Cubemap (Skybox)
 		std::vector<std::string> faces;
-		faces.push_back("/ame_siege/siege_rt.tga");
-		faces.push_back("/ame_siege/siege_lf.tga");
-		faces.push_back("/ame_siege/siege_up.tga");
-		faces.push_back("/ame_siege/siege_dn.tga");
-		faces.push_back("/ame_siege/siege_ft.tga");
-		faces.push_back("/ame_siege/siege_bk.tga");
+		faces.push_back("/sor_alien/alien_lf.jpg");
+		faces.push_back("/sor_alien/alien_rt.jpg");
+		faces.push_back("/sor_alien/alien_up.jpg");
+		faces.push_back("/sor_alien/alien_dn.jpg");
+		faces.push_back("/sor_alien/alien_ft.jpg");
+		faces.push_back("/sor_alien/alien_bk.jpg");
+
 		cubemap_texture = m_TextureMgr.LoadTexture(faces);
+
+
+		
 	}
 
 

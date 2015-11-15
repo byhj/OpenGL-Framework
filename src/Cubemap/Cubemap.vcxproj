@@ -124,7 +124,7 @@
     <ClInclude Include="..\..\include\ogl\Debug.h" />
     <ClInclude Include="..\..\include\ogl\Gui.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
-    <ClInclude Include="..\..\include\ogl\TextureManager.h" />
+    <ClInclude Include="..\..\include\ogl\TextureMgr.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="cubemap.h" />
   </ItemGroup>
@@ -140,7 +140,7 @@
     <ClCompile Include="..\..\include\ogl\Debug.cpp" />
     <ClCompile Include="..\..\include\ogl\Gui.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
-    <ClCompile Include="..\..\include\ogl\TextureManager.cpp" />
+    <ClCompile Include="..\..\include\ogl\TextureMgr.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="cubemap.cpp" />

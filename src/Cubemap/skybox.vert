@@ -13,5 +13,5 @@ void main()
     mat4 mvp  = proj * view * model;
     gl_Position = mvp * vec4(Position, 1.0f);
 
-    TexCoords = Position;
+    TexCoords = TexCoords = vec3(Position.x, Position.y, Position.z);
  }

@@ -39,7 +39,7 @@
     <ClInclude Include="cubemap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\ogl\TextureManager.h">
+    <ClInclude Include="..\..\include\ogl\TextureMgr.h">
       <Filter>Framework</Filter>
     </ClInclude>
   </ItemGroup>
@@ -76,13 +76,13 @@
     <ClCompile Include="..\..\include\ogl\Gui.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\include\ogl\Shader.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
     <ClCompile Include="cubemap.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\include\ogl\TextureManager.cpp">
+    <ClCompile Include="..\..\include\ogl\Shader.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\TextureMgr.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>

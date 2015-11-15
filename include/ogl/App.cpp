@@ -141,11 +141,16 @@ void App::Run(std::shared_ptr<App> the_app)
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
 	v_Init();
+	
 
-	glViewport(0, 0, windowInfo.Width, windowInfo.Height);
 
 	while (!glfwWindowShouldClose(window)) 
 	{
+		int sw, sh;
+		glfwGetWindowSize(window, &sw, &sh);
+
+		glViewport(0, 0, sw, sh);
+
 		glfwPollEvents();
 		v_Movement(window);
 

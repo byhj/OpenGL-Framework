@@ -65,6 +65,8 @@ namespace byhj
 		init_buffer();
 		init_vertexArray();
 		init_texture();
+
+		m_Model.LoadModel("armadillo.obj");
 	}
 
 	void Skybox::Render(const const ogl::MvpMatrix &matrix)
@@ -79,13 +81,36 @@ namespace byhj
 		glm::mat4 view  = glm::mat4( glm::mat3(matrix.view) );
 		glm::mat4 proj  = matrix.proj;
 		glm::mat4 model = matrix.model;
+
 		glUniformMatrix4fv(view_loc, 1, GL_FALSE,  &view[0][0]);
 		glUniformMatrix4fv(proj_loc, 1, GL_FALSE,  &proj[0][0]);
 		glUniformMatrix4fv(model_loc, 1, GL_FALSE, &model[0][0]);
 
+		glDepthFunc(GL_LEQUAL);
+
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		glBindVertexArray(0);
+
+
+		//////////////////////////////////////////////////////////////
+		glUseProgram(0);
+
+		glUseProgram(model_prog);
+
+		glDepthFunc(GL_LESS); // Set depth function back to default
+		GLfloat time = glfwGetTime();
+
+		//model = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelUniform_loc.model, 1, GL_FALSE, &matrix.view[0][0]);
+		glUniformMatrix4fv(modelUniform_loc.view,  1, GL_FALSE, &proj[0][0]);
+		glUniformMatrix4fv(modelUniform_loc.proj,  1, GL_FALSE, &model[0][0]);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_CUBE_MAP, cubemap_texture);
+		glUniform1i(modelUniform_loc.cubemap, 0);
+
+		m_Model.Draw(model_prog);
+
 		glUseProgram(0);
 	}
 
@@ -109,6 +134,21 @@ namespace byhj
 		view_loc  = glGetUniformLocation(program, "view");
 		proj_loc  = glGetUniformLocation(program, "proj");
 		tex_loc   = glGetUniformLocation(program, "skybox");
+
+		///////////////////////////////////////////////////////
+		ModelShader.init();
+		ModelShader.attach(GL_VERTEX_SHADER, "model.vert");
+		ModelShader.attach(GL_FRAGMENT_SHADER, "model.frag");
+		ModelShader.link();
+		ModelShader.info();
+
+		model_prog = ModelShader.GetProgram();
+		modelUniform_loc.model = glGetUniformLocation(model_prog, "u_Model");
+		modelUniform_loc.view  = glGetUniformLocation(model_prog, "u_View");
+		modelUniform_loc.proj  = glGetUniformLocation(model_prog, "u_Proj");
+		modelUniform_loc.viewPos = glGetUniformLocation(model_prog, "u_ViewPos");
+		modelUniform_loc.cubemap = glGetUniformLocation(model_prog, "u_Cubemap");
+
 	}
 
 	void Skybox::init_buffer()
@@ -137,12 +177,12 @@ namespace byhj
 	
 		// Cubemap (Skybox)
 		std::vector<std::string> faces;
-		faces.push_back("/sor_alien/alien_lf.jpg");
-		faces.push_back("/sor_alien/alien_rt.jpg");
-		faces.push_back("/sor_alien/alien_up.jpg");
-		faces.push_back("/sor_alien/alien_dn.jpg");
-		faces.push_back("/sor_alien/alien_ft.jpg");
-		faces.push_back("/sor_alien/alien_bk.jpg");
+		faces.push_back("/house/posx.jpg");
+		faces.push_back("/house/negx.jpg");
+		faces.push_back("/house/posy.jpg");
+		faces.push_back("/house/negy.jpg");
+		faces.push_back("/house/posz.jpg");
+		faces.push_back("/house/negz.jpg");
 
 		cubemap_texture = m_TextureMgr.LoadTexture(faces);
 

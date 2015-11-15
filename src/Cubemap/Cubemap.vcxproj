@@ -123,14 +123,16 @@
     <ClInclude Include="..\..\include\ogl\Camera.h" />
     <ClInclude Include="..\..\include\ogl\Debug.h" />
     <ClInclude Include="..\..\include\ogl\Gui.h" />
+    <ClInclude Include="..\..\include\ogl\Mesh.h" />
+    <ClInclude Include="..\..\include\ogl\Model.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
     <ClInclude Include="..\..\include\ogl\TextureMgr.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="cubemap.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="cube.frag" />
-    <None Include="cube.vert" />
+    <None Include="model.frag" />
+    <None Include="model.vert" />
     <None Include="skybox.frag" />
     <None Include="skybox.vert" />
   </ItemGroup>
@@ -139,6 +141,8 @@
     <ClCompile Include="..\..\include\ogl\Camera.cpp" />
     <ClCompile Include="..\..\include\ogl\Debug.cpp" />
     <ClCompile Include="..\..\include\ogl\Gui.cpp" />
+    <ClCompile Include="..\..\include\ogl\Mesh.cpp" />
+    <ClCompile Include="..\..\include\ogl\Model.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
     <ClCompile Include="..\..\include\ogl\TextureMgr.cpp" />
     <ClCompile Include="main.cpp" />

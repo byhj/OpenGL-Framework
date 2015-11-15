@@ -3,8 +3,10 @@
 
 #include "ogl/Shader.h"
 #include "ogl/Utility.h"
-#include <glfw/glfw3.h>
 #include "ogl/TextureMgr.h"
+#include "ogl/Model.h"
+#include <glfw/glfw3.h>
+
 namespace byhj
 {
 
@@ -26,10 +28,22 @@ namespace byhj
 		void init_texture();
 
 		GLuint vao, vbo, program;
+		GLuint model_prog;
+		struct ModelUniformLoc
+		{
+			GLuint model;
+			GLuint view;
+			GLuint proj;
+			GLuint cubemap;
+			GLuint viewPos;
+		}modelUniform_loc;
+
 		GLuint cubemap_texture, tex_loc;
 		GLuint model_loc, view_loc, proj_loc;
+		ogl::Model   m_Model;
 		ogl::TextureMgr m_TextureMgr;
 		ogl::Shader SkyboxShader;
+		ogl::Shader ModelShader;
 	};
 
 }

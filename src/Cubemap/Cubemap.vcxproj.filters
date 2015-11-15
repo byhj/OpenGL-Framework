@@ -42,18 +42,24 @@
     <ClInclude Include="..\..\include\ogl\TextureMgr.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\ogl\Model.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\Mesh.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="cube.vert">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="skybox.frag">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="cube.frag">
+    <None Include="skybox.vert">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="skybox.vert">
+    <None Include="model.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="model.frag">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -83,6 +89,12 @@
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="..\..\include\ogl\TextureMgr.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Model.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Mesh.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>

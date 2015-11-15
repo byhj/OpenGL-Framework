@@ -42,14 +42,7 @@ namespace byhj
 		matrix.proj  = glm::perspective(m_Camera.GetZoom(), GetAspect(), 0.1f, 1000.0f);
 		matrix.model = glm::mat4(1.0f);
 
-		// Draw skybox first, disable depth writing. 
-		// This way the skybox will always be drawn at the background of all the other objects.
-		glDepthMask(GL_FALSE);
-
 		m_Skybox.Render(matrix);
-
-		glDepthMask(GL_TRUE);
-		//glDepthFunc(GL_LESS); // Set depth function back to default
 
 
 	}

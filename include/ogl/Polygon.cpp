@@ -13,10 +13,10 @@ namespace byhj
 		//Vertex Data
 		Vertex vertex[4];
 		                   //Pos           Normal              TexCoord      Tangent
-		vertex[0] = Vertex(-w2, -h2,  0.0, 0.0f, 0.0f,  1.0f, 0.0f, 1.0f,   1.0f, 0.0f, 0.0);
-		vertex[1] = Vertex(+w2, -h2,  0.0, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,   1.0f, 0.0f, 0.0);
-		vertex[2] = Vertex(-w2, +h2,  0.0, 0.0f, 0.0f,  1.0f, 1.0f, 0.0f,   1.0f, 0.0f, 0.0);
-		vertex[3] = Vertex(+w2, +h2,  0.0, 0.0f, 0.0f,  1.0f, 1.0f, 1.0f,   1.0f, 0.0f, 0.0);
+		vertex[0] = Vertex(-w2, -h2, 0.0,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f,   1.0f, 0.0f, 0.0);
+		vertex[1] = Vertex(+w2, -h2, 0.0,  0.0f, 0.0f, 1.0f,  1.0f, 0.0f,   1.0f, 0.0f, 0.0);
+		vertex[2] = Vertex(-w2, +h2, 0.0,  0.0f, 0.0f, 1.0f,  0.0f, 1.0f,   1.0f, 0.0f, 0.0);
+		vertex[3] = Vertex(+w2, +h2, 0.0,  0.0f, 0.0f, 1.0f,  1.0f, 1.0f,   1.0f, 0.0f, 0.0);
 	    
 		mesh.VertexData.assign(vertex, vertex + 4);
 

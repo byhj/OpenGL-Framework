@@ -18,7 +18,8 @@ namespace byhj
 
    namespace ogl
     {
-     
+       char *textFileRead(const char *fn);
+
         class Shader
         {
         
@@ -39,7 +40,7 @@ namespace byhj
         
         
         private:
-			char *textFileRead(const char *fn);
+
 
 			GLuint m_Program = ogl::VALUE;
 			std::string fileDir;

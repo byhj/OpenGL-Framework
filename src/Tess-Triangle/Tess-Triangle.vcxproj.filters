@@ -14,17 +14,26 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Framework">
-      <UniqueIdentifier>{1f081669-c7d2-42e8-b2b9-8bd04529867c}</UniqueIdentifier>
+      <UniqueIdentifier>{7b9e7939-5954-433d-ba5e-bffbd58926dd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="skybox.h">
+    <ClInclude Include="TessGUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TessTriangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\ogl\App.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\Camera.h">
       <Filter>Framework</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\ogl\Debug.h">
@@ -36,35 +45,30 @@
     <ClInclude Include="..\..\include\ogl\Shader.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\ogl\Camera.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\ogl\TextureMgr.h">
       <Filter>Framework</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="skybox.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="skybox.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="cube.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="cube.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="skybox.cpp">
+    <ClCompile Include="TessGUI.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TessTriangle.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Font.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="RenderSystem.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\include\ogl\App.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Camera.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="..\..\include\ogl\Debug.cpp">
@@ -76,14 +80,31 @@
     <ClCompile Include="..\..\include\ogl\Shader.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\include\ogl\Camera.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\include\ogl\TextureMgr.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="font.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="font.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="triangle.tcs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="triangle.tes">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="triangle.geom">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="triangle.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="triangle.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

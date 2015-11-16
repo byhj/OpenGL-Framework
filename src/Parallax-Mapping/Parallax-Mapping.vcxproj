@@ -57,6 +57,7 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\OpenGL-Framework(x86).props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -118,6 +119,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="plane.frag" />
+    <None Include="plane.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\include\ogl\App.cpp" />
+    <ClCompile Include="..\..\include\ogl\Gui.cpp" />
+    <ClCompile Include="..\..\include\ogl\Polygon.cpp" />
+    <ClCompile Include="..\..\include\ogl\Shader.cpp" />
+    <ClCompile Include="..\..\include\ogl\Texture.cpp" />
+    <ClCompile Include="..\..\include\ogl\TextureManager.cpp" />
+    <ClCompile Include="..\..\include\ogl\TextureMgr.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="RenderSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\ogl\App.h" />
+    <ClInclude Include="..\..\include\ogl\Gui.h" />
+    <ClInclude Include="..\..\include\ogl\Polygon.h" />
+    <ClInclude Include="..\..\include\ogl\Shader.h" />
+    <ClInclude Include="..\..\include\ogl\Texture.h" />
+    <ClInclude Include="..\..\include\ogl\TextureManager.h" />
+    <ClInclude Include="..\..\include\ogl\TextureMgr.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="RenderSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

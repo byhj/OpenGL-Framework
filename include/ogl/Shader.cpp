@@ -8,7 +8,7 @@ namespace ogl
 {
 
 //read the Shadercode
-char * Shader::textFileRead(const char *fn) {  //read the shader code
+char * textFileRead(const char *fn) {  //read the shader code
 	FILE *fp;  
 	char *content = NULL;  
 	int count=0;  

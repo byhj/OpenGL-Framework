@@ -86,4 +86,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_lf.tga" />
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_rt.tga" />
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_up.tga" />
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_bk.tga" />
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_dn.tga" />
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_ft.tga" />
+  </ItemGroup>
 </Project>

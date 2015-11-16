@@ -20,6 +20,7 @@ namespace byhj
 
 			void Init(std::string folder = "../../media/textures/");
 			GLuint LoadTexture(const std::string &fileName);
+			GLuint LoadDDS(const std::string &fileName);
 			GLuint LoadTexture(const std::string &fileName, GLboolean alpha);
 			GLuint LoadTexture(const std::vector<std::string> &faces);
 			GLuint LoadTextureGamma(GLchar* path, bool gammaCorrection);

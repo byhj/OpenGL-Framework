@@ -145,6 +145,14 @@
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="skybox.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_bk.tga" />
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_dn.tga" />
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_ft.tga" />
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_lf.tga" />
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_rt.tga" />
+    <Image Include="..\..\..\..\..\迅雷下载\mp_overrated\highly-overrated_up.tga" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

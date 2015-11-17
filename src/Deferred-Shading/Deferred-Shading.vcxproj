@@ -57,6 +57,7 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\OpenGL-Framework(x86).props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -118,6 +119,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\include\ogl\App.cpp" />
+    <ClCompile Include="..\..\include\ogl\Camera.cpp" />
+    <ClCompile Include="..\..\include\ogl\Debug.cpp" />
+    <ClCompile Include="..\..\include\ogl\Gui.cpp" />
+    <ClCompile Include="..\..\include\ogl\Mesh.cpp" />
+    <ClCompile Include="..\..\include\ogl\Model.cpp" />
+    <ClCompile Include="..\..\include\ogl\Shader.cpp" />
+    <ClCompile Include="..\..\include\ogl\TextureMgr.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="RenderSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\ogl\App.h" />
+    <ClInclude Include="..\..\include\ogl\Camera.h" />
+    <ClInclude Include="..\..\include\ogl\Debug.h" />
+    <ClInclude Include="..\..\include\ogl\Gui.h" />
+    <ClInclude Include="..\..\include\ogl\Mesh.h" />
+    <ClInclude Include="..\..\include\ogl\Model.h" />
+    <ClInclude Include="..\..\include\ogl\Shader.h" />
+    <ClInclude Include="..\..\include\ogl\TextureMgr.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="RenderSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="deferred.frag" />
+    <None Include="deferred.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

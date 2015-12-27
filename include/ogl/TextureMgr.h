@@ -7,6 +7,7 @@
 #include <gl/glew.h>
 #include <vector>
 #include <iostream>
+#include <memory>
 
 namespace byhj
 {
@@ -17,6 +18,12 @@ namespace byhj
 		public:
 			TextureMgr() = default;
 			~TextureMgr() = default;
+
+			std::shared_ptr<TextureMgr> getInstance()
+			{
+				static std::shared_ptr<TextureMgr> pInstance = std::make_shared<TextureMgr>();
+				return pInstance;
+			}
 
 			void Init(std::string folder = "../../media/textures/");
 			GLuint LoadTexture(const std::string &fileName);

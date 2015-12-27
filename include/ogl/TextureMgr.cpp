@@ -4,6 +4,12 @@ namespace byhj
 {
 	namespace ogl
 	{
+		TextureMgr * getInstance()
+		{
+			static TextureMgr *pInstance = new TextureMgr;
+			return pInstance;
+		}
+
 		void TextureMgr::Init(std::string folder)
 		{
 			this->folder = folder;

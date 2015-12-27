@@ -126,9 +126,11 @@
     <ClCompile Include="..\..\include\ogl\Mesh.cpp" />
     <ClCompile Include="..\..\include\ogl\Model.cpp" />
     <ClCompile Include="..\..\include\ogl\Shader.cpp" />
+    <ClCompile Include="..\..\include\ogl\Texture.cpp" />
     <ClCompile Include="..\..\include\ogl\TextureMgr.cpp" />
     <ClCompile Include="..\..\include\ogl\Utility.cpp" />
     <ClCompile Include="include\ogl\Exception.cpp" />
+    <ClCompile Include="ShaderMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\ogl\App.h" />
@@ -138,6 +140,8 @@
     <ClInclude Include="..\..\include\ogl\Mesh.h" />
     <ClInclude Include="..\..\include\ogl\Model.h" />
     <ClInclude Include="..\..\include\ogl\Shader.h" />
+    <ClInclude Include="..\..\include\ogl\ShaderMgr.h" />
+    <ClInclude Include="..\..\include\ogl\Texture.h" />
     <ClInclude Include="..\..\include\ogl\TextureMgr.h" />
     <ClInclude Include="..\..\include\ogl\Utility.h" />
     <ClInclude Include="include\ogl\Exception.h" />

@@ -42,9 +42,6 @@
     <ClCompile Include="include\ogl\Exception.cpp">
       <Filter>Exception</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\include\ogl\TextureMgr.cpp">
-      <Filter>Texture</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\include\ogl\Model.cpp">
       <Filter>Model</Filter>
     </ClCompile>
@@ -53,6 +50,15 @@
     </ClCompile>
     <ClCompile Include="..\..\include\ogl\Gui.cpp">
       <Filter>Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderMgr.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\Texture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\ogl\TextureMgr.cpp">
+      <Filter>Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,9 +80,6 @@
     <ClInclude Include="include\ogl\Exception.h">
       <Filter>Exception</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\ogl\TextureMgr.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\ogl\Mesh.h">
       <Filter>Model</Filter>
     </ClInclude>
@@ -85,6 +88,15 @@
     </ClInclude>
     <ClInclude Include="..\..\include\ogl\Gui.h">
       <Filter>Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\Texture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\ShaderMgr.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ogl\TextureMgr.h">
+      <Filter>Texture</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
